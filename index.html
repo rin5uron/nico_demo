@@ -1,0 +1,268 @@
+<!DOCTYPE html><!--　HTMLファイルであることを宣言 -->     
+<html lang="ja"><!--　日本語で表示することを宣言 -->
+<head>
+    <meta charset="UTF-8"><!--　文字コードをUTF-8（世界標準、あらゆる文字に対応）に設定 -->
+    <!-- デバイスの画面幅に合わせる、初期拡大率100% -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニコ酒店</title>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="left-section">
+                <div class="logo">
+                    <img src="images/logo.jpg" alt="ニコ酒店ロゴ">
+                    <span class="shop-name">ニコ酒店</span>
+                </div>
+            </div>
+          
+            <div class="center-section">
+                <nav id="nav-links" class="nav-links">
+                    <ul>
+                        <li><a href="#store-concept">お店について</a></li>
+                        <li><a href="#product">取扱商品</a></li>
+                        <li><a href="#tea">色物薬膳茶</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+          
+            <div class="right-section">
+                <div class="sns-icons">
+                    <a href="https://www.instagram.com/nicosaketen" target="_blank"><img src="images/icons/instagram-light.svg" alt="Instagram"></a>
+                </div>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- メインビジュアル -->
+        <section class="main-visual">
+            <img src="images/main-visual.jpg" alt="メインビジュアル">
+            <div class="main-visual-text">
+                <p>お酒のセレクトショップ</p>
+                <h1>ニコ酒店</h1>
+            </div>
+        </section>
+    
+        <!-- コンセプト-->
+        <section class="store-concept" id="store-concept">
+            <div class="container">
+                <h2 class="section-title">お店について</h2>
+
+                <div class="store-concept-container">
+                    <!-- 段落ごとに改行したいので、pタグでまとめている -->
+                    <div class="store-concept-text">
+                        <p>店内はお酒の販売はもちろん、角打ちスペースもあります。</p>
+                            <p>（以下お店の紹介やコンセプト文）</p>
+
+                        <p>（サンプルテキスト）<br>
+                            （サンプルテキスト）</p>
+                    
+                        <p>（サンプルテキスト）</p>
+                    </div>
+
+                    <div class="store-concept-image">
+                        <img src="images/shop.jpg" alt="店舗外観の写真">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 取扱商品 -->
+        <section class="product" id="product">
+            <div class="container">
+                <h2 class="section-title">取扱商品</h2>
+                <div class="product-container">
+                    <div class="section-text">
+                        <p>季節や入荷状況によって随時商品は入れ替わります。<br>
+                        最新情報は店舗のInstagramでご確認ください。</p>
+                        <p><a href="https://www.instagram.com/nicosaketen" target="_blank">オンラインショップはこちら</a></p>
+                    </div>
+         
+                    <!-- Swiperスライダーコンテナ -->
+                    <!-- Swiper全体のスライダーコンテナ（初期化対象） -->
+                    <div class="swiper-container">
+                    <div class="swiper mySwiper">
+                        <!-- スライドのラッパー：ここに各スライドが並ぶ -->
+                        <div class="swiper-wrapper">
+                            <!-- 各スライド：カード1 -->
+                            <div class="swiper-slide">
+                                <img src="images/product1.jpg" alt="product1">
+                                <h2>(サンプルタイトル)</h2>
+                                <p>(ここに商品説明テキストが入ります)</p>
+                            </div>
+  
+                            <!-- カード2 -->
+                            <div class="swiper-slide">
+                                <img src="images/product2.jpg" alt="product2">
+                                <h2>(サンプルタイトル)</h2>
+                                <p>(ここに商品説明テキストが入ります)</p>
+                            </div>
+  
+                            <!-- カード3 -->
+                            <div class="swiper-slide">
+                                <img src="images/product3.jpg" alt="product3">
+                                <h2>(サンプルタイトル)</h2>
+                                <p>(ここに商品説明テキストが入ります)</p>
+                            </div>
+  
+                            <!-- カード4 -->
+                            <div class="swiper-slide">
+                                <img src="images/product4.jpg" alt="product4">
+                                <h2>(サンプルタイトル)</h2>
+                                <p>(ここに商品説明テキストが入ります)</p>
+                            </div>
+                            
+                            <!-- カード5 -->
+                            <div class="swiper-slide">
+                                <img src="images/product5.jpg" alt="product5">
+                                <h2>(サンプルタイトル)</h2>
+                                <p>(ここに商品説明テキストが入ります)</p>
+                            </div>
+
+                            <!-- カード6 (追加) -->
+                            <div class="swiper-slide">
+                                <img src="images/product1.jpg" alt="product6">
+                                <h2>(サンプルタイトル)</h2>
+                                <p>(ここに商品説明テキストが入ります)</p>
+                            </div>
+
+                            <!-- カード7 (追加) -->
+                            <div class="swiper-slide">
+                                <img src="images/product2.jpg" alt="product7">
+                                <h2>(サンプルタイトル)</h2>
+                                <p>(ここに商品説明テキストが入ります)</p>
+                            </div>
+                        </div> <!-- .swiper-wrapper -->
+                    </div><!-- .swiper -->
+                    <!-- ページネーション（●●●） -->
+                    <div class="swiper-pagination"></div>
+                        
+                    <!-- ナビゲーション矢印 -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    </div><!-- .swiper-container -->
+                </div><!-- .product-container -->
+            </div><!-- .container -->
+        </section><!-- .product -->
+
+        <!-- 色物薬膳茶 -->
+        <section class="tea" id="tea">
+            <div class="container">
+                <h2 class="section-title">色物薬膳茶</h2>
+                <div class="tea-container">
+                    <div class="section-text">
+                        <p>ニコ酒店オリジナル薬膳茶。</p>
+                        <p>（ここに商品説明が入ります）<br>
+                        （サンプルテキスト）（サンプルテキスト）（サンプルテキスト）</p>
+                        <p>（サンプルテキスト）（サンプルテキスト）（サンプルテキスト）</p>
+                    </div>
+                    
+                    <!-- お茶商品紹介 -->
+                    <div class="tea-list" id="tea-list">
+                        <div class="tea-item">
+                            <img src="images/001secchu.jpg" alt="Secchu">
+                            <h3>001 折衷 - Secchu</h3>
+                            <div class="tea-description">
+                                <p>日々のバランスを整える、クセのない優しい味わい</p>
+                            </div>
+                            <div class="tea-ingredients">
+                                <p>クロモジ・ハニーブッシュ・ナツメ・レモンバーム・桂枝</p>
+                            </div>
+                            <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
+                        </div>
+                        
+                        <div class="tea-item">  
+                            <img src="images/002ryokuin.jpg" alt="Ryokuin">
+                            <h3>002 緑蔭 - Ryokuin</h3>
+                            <div class="tea-description">
+                                <p>清涼感たっぷり、夏の暑さを和らげる</p>
+                            </div>
+                            <div class="tea-ingredients">
+                                <p>蓮の葉・カルダモン・菊・ミント・ローリエ</p>
+                            </div>
+                            <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
+                        </div>
+                        
+                        <div class="tea-item">
+                            <img src="images/003anka.jpg" alt="Anka">
+                            <h3>003 行火 - Anka</h3>
+                            <div class="tea-description">
+                                <p>スパイスの香りで体を芯から温めるチャイブレンド</p>
+                            </div>
+                            <div class="tea-ingredients">
+                                <p>紅茶・生姜・シナモン・カルダモン・八角・鶏血藤・クローブ</p>
+                            </div>
+                            <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
+                        </div>
+                        
+                        <div class="tea-item">
+                            <img src="images/004kusamoe.jpg" alt="Kusamoe">
+                            <h3>004 草萌 - Kusamoe</h3>
+                            <div class="tea-description">
+                                <p>春の高ぶるエネルギーを整える、爽やかなブレンド</p>
+                            </div>
+                            <div class="tea-ingredients">
+                                <p>菊・ネトルリーフ・ペパーミント・ジャスミン茶・甜茶</p>
+                            </div>
+                            <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
+                        </div>
+                    </div><!-- .tea-list -->
+                </div><!-- .tea-container -->
+            </div><!-- .container -->
+        </section><!-- .tea -->
+
+        <!-- お問い合わせ -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">お問い合わせ</h2>
+                <div class="contact-container">
+                    <div class="contact-left">
+                        <div class="section-text">
+                            <p>お問い合わせは店舗またはInstagramのDMまで。</p>
+                            <p>ニコ酒店<br>
+                            東京都江東区高橋11-1 1F</p>
+                        </div>
+
+                        <div class="sns-icons">
+                            <a href="https://www.instagram.com/nicosaketen" target="_blank"><img src="images/icons/instagram-light.svg" alt="Instagram"></a>
+                        </div>
+                    </div>
+              
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.6818165654877!2d139.7961031759287!3d35.6848358725861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188900618ae02b%3A0xc4d716f6038010f0!2zTklDT-mFkuW6lw!5e0!3m2!1sja!2sus!4v1746235224649!5m2!1sja!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div><!-- .contact-container -->
+            </div><!-- .container -->
+        </section><!-- .contact -->
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2025 ニコ酒店</p>
+    </footer>
+       
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script> <!-- Swiperの後に読み込ませることでエラーを防ぐ-->
+</body>
+</html>
+
+
+
+
+
+
+     
+
+

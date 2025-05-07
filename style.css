@@ -1,0 +1,880 @@
+/* リセットCSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Zen Old Mincho', 'Shippori Mincho', serif;
+  background-color: #FFF9EE;
+  color: #3F3F3F;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* ヘッダー */
+
+.header-container {
+  position: sticky;/*　ヘッダーを固定表示 */
+  height: 9vh;/*　画面の高さの9% */
+  display: flex;/*　ヘッダーを横並びに配置 */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);/*　ヘッダーに立体感を与える */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo img {
+  height: 7vh;/*　ロゴの高さを画面の7%に設定 */
+}
+
+.shop-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4A4A4A; /* ロゴの濃淡に寄せたグレー系 */
+  font-family: 'Zen Old Mincho', serif; /* ロゴに近い和風書体へ */
+  margin-left: 0.5rem;
+  line-height: 1;
+  white-space: nowrap; /* 折り返さず横に並べる！ ← モバイルでの縦潰れ防止 */
+}
+
+
+
+
+.sns-icons a img {
+  height: 5vh;/*　SNSアイコンの高さを画面の5%に設定 */
+  margin-left: 10px;/*　SNSアイコンの左側に10pxのマージンを設定 */
+  /* SNSアイコンに透明度変化 */
+  transition: opacity 0.3s;
+}
+
+.sns-icons a img:hover {
+  opacity: 0.7;
+}
+
+
+/* ハンバーガーメニュー */
+.menu-toggle {
+  display: flex;/*　子要素を自由に配置できる箱を作る*/
+  flex-direction: column;/*　ハンバーガーを作る線をを縦並びに配置 */
+  cursor: pointer;/*　カーソルをポインターゲットに設定 */
+  margin-left: 0.5rem;/*　メニューアイコンの左側にマージンを設定 */ 
+  background: none;
+  border: none;
+  padding: 0.5rem;  /* htmlタグのフォントサイズが基準とした単位rem / 8px相当、しかし画面サイズやユーザー設定に応じて変化 */
+}
+
+
+.menu-toggle span {
+  display: block;
+  width: 2rem;      /* 固定pxよりもremを使う */
+  height: 0.2rem;   /* 細さも比率で */
+  margin-bottom: 0.4rem;
+  background-color: #3F3F3F; /* 線の色を追加 */
+}
+
+
+
+/* ナビゲーションメニュー */
+.nav-links {
+  display: none; /* 初期状態では非表示 */
+  position: absolute;
+  top: 100%; /* ヘッダーの下に配置 */
+  right: 0;
+  background-color: #F3F0E8;
+  width: 100%;
+  max-width: 250px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.nav-links.active {
+  display: block; /* クリック時に表示 */
+}
+
+.nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links ul li {
+  border-bottom: 1px solid #e0dcd0;
+}
+
+.nav-links ul li:last-child {
+  border-bottom: none;
+}
+
+.nav-links ul li a {
+  display: block;
+  padding: 15px 20px;
+  color: #536F69;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  border-bottom: none;
+  text-decoration: none;
+  line-height: 1;
+  padding: 0.5rem 0;
+  display: inline-block;
+}
+
+.nav-links ul li a:hover {
+  background-color: #e0dcd0;
+}
+
+/* メインビジュアル */
+.main-visual {
+  height: 85vh;/*　メインビジュアルの高さを画面の40%に設定 */
+  width: 100%;
+  position: relative;
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+
+.main-visual img {
+  width: 100%;
+  height: 100%; /* 画面の高さの40%  */
+  object-fit: cover; /* 中央を切り取って全体を満たす */
+  object-position: center; /* 中央に配置 */
+}
+
+.main-visual-text {
+  writing-mode: vertical-rl; /* 縦書き右から左 */
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Shippori Mincho', serif;
+  background: none;
+  font-size: 1.5rem;
+  line-height: 2;
+}
+
+
+
+
+/* メインビジュアル下からフッター上までの統一スタイル*/
+.container {
+  max-width: 1200px;
+  width: 100%;/*　狭い画面でも100%でちぢむ */
+  margin: 0 auto;
+  padding: 0 5vw;
+}
+
+/* セクション見出しの統一スタイル */
+.section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #536F69;
+  margin: 4rem 0 2rem; /* 上下の余白を統一：上3rem、下2rem */
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #536F69;
+  letter-spacing: 0.05em;
+  text-align: left;
+  padding-left: 1vw;
+}
+
+/* 段落ごとに改行する */
+.section-text p {
+  margin-bottom: 1em; /* 好みでpxでもOK：例 margin-bottom: 16px; */
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #3F3F3F;
+  padding-left: 1vw;
+}
+
+.section-text a {
+  color: #141c1a;
+
+}
+
+
+
+
+/* 店舗紹介セクションのレイアウトスタイル */
+  /* 例：お店について（store-concept）*/
+.store-concept {
+  min-height: auto; /* 固定高さを解除 */
+  padding: 3rem 0;  /* 余白で高さ調整 */
+}
+
+
+
+
+.store-concept-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+  flex-direction: row;
+  max-width: 100%; /* ← 幅を制限しない */
+  width: 100%;
+}
+
+.store-concept-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.store-concept-text p {
+  margin-bottom: 1em; /* 好みでpxでもOK：例 margin-bottom: 16px; */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #3F3F3F;
+    padding-left: 1vw;
+}
+
+.store-concept-image {
+  flex: 1;
+  min-width: 200px;
+  aspect-ratio: 4 / 3; 
+}
+
+
+.store-concept-image img {
+  width: 100%;
+  max-width: 450px;
+  max-height: 40vh;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* .containerの追加要素 */
+.product-container {
+  max-height: none;
+  padding: 0 0 3rem; /* 下部に余白を追加 */
+}
+
+  
+
+/* 全体の枠 */
+.swiper-container {
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 60px; /* 下部に余白を追加してページネーション用のスペースを確保 */
+}
+  
+
+
+.swiper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem; /* 左右に少し余白を持たせて矢印が表示されるように */;
+  box-sizing: border-box;
+  overflow-x: visible; /* 矢印隠れないように */
+}
+
+
+/* ページネーションをカード外に独立配置 */
+.swiper-pagination {
+  position: absolute;
+  bottom: -40px !important; /* カード下の位置をもっと下に調整 */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  margin-top: 2rem; /* 余白増加 */
+  margin-bottom: 2rem;
+}
+
+
+/* スライド1枚1枚をカード風に */
+.swiper-slide {
+  background: rgba(228, 218, 204, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 90vw;
+  min-width: 240px;
+  width: auto; /* スマホでは画面幅の8割、PCは max-width が効く */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* アニメーション効果を追加 */
+  opacity: 0.7; /* 非アクティブなスライドは少し透明に */
+  margin: 0 auto;
+}
+
+/* アクティブなスライド */
+.swiper-slide-active {
+  transform: scale(1.05); /* アクティブなスライドを少し大きく */
+  opacity: 1; /* アクティブなスライドは完全に不透明に */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* シャドウも強調 */
+}
+
+/* スライド画像 */
+.swiper-slide img {
+  border-radius: 5px;
+  object-fit: cover;
+  height: auto;
+  max-height: 240px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+
+
+
+
+/* ページネーションドットのスタイル */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  opacity: 0.6;
+  margin: 0 5px; /* ドット間の間隔 */
+}
+
+/* アクティブなページネーションドットのスタイル */
+.swiper-pagination-bullet-active {
+  background-color: #536F69;
+  opacity: 1;
+}
+
+/* ナビ矢印ボタン */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #536F69;
+  border-radius: 50%;
+  width: 30px; /* 少し大きく */
+  height: 30px; /* 少し大きく */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 20; /* z-indexを上げて操作性を向上 */
+  cursor: pointer; /* カーソルをポインターに */
+  transition: background 0.3s, transform 0.2s; /* ホバーエフェクト */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1); /* ホバー時に少し大きく */
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: #536F69;     /* ← 自分のテーマカラー */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+/* 商品一覧セクション */
+
+.tea-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* PCでは2列 */
+  gap: 2rem;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.tea-item {
+  background: rgba(228, 218, 204, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s;
+  overflow: hidden; /* 画像がはみ出しても枠内 */
+  padding: 3vh 1vw;
+}
+.tea-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  white-space: nowrap; /* 折り返さない */
+}
+
+.tea-description {
+  font-size: 0.9rem;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.tea-ingredients {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #666;
+}
+
+.tea-price {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+  margin-top: auto;
+  font-weight: bold;
+  color: #555;
+}
+
+.tea-price .tax {
+  font-size: 0.75em;  /* 価格の0.75倍の大きさに */
+  color: #666;
+}
+
+
+.tea-item img {
+  width: 90%;
+  height: auto;
+  aspect-ratio: 4 / 3; /* ✅ 比率を固定しつつ */
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+
+.tea-item img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+.tea-item h3,
+.tea-description,
+.tea-ingredients,
+.tea-price {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tea-item h3{
+  margin-top: 0.7rem;
+}
+
+.tea-description,
+.tea-ingredients {
+  margin: 0.8rem auto; /* 上下に1remの余白、左右は自動（中央揃え） */
+  color: #3F3F3F;
+}
+
+
+  
+
+
+/* お問い合わせセクション */
+
+.contact-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 0 auto;/* 中央寄せ（左右の margin を自動に） */
+}
+
+
+.contact-left {
+  flex: 1; /* 比率1（1:2の割合で左側が1） */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 30%; /* 最大幅を30%に制限 */
+  margin-right: 20px; /* 右側に余白を作る */
+}
+
+
+.contact-icons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icons img {
+  width: 32px;
+  height: 32px;
+}
+
+
+.map-container {
+  flex: 2; /* 比率2（1:2の割合で右側が2） */
+  max-width: 65%; /* 最大幅を65%に制限 */
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+  display: block; /* インライン要素の余計な空白を削除 */
+}
+.contact-left, .map-container {
+  flex: 1;
+  max-width: 48%;
+}
+
+
+
+
+/* フッター */
+footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  background-color: #F3F0E8;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+
+
+
+
+/* レスポンシブ（スマホ用） */
+/* iPhoneサイズ以下の画面ではハンバーガーの線を細く短くする */
+@media (max-width: 480px) {
+  .logo img {
+    height: 5vh; /* モバイルでは少し小さく */
+  }
+  
+  .shop-name {
+    font-size: 1rem;
+  }
+  
+  .menu-toggle span {
+    height: 0.15rem;  /* 小さい画面では少し細く */
+    width: 1.8rem;    /* 少し短く */
+    margin-bottom: 0.3rem;
+  }
+
+
+     /* スライド幅を100%にして余白防止 */
+  .swiper-slide {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+
+  /* ページネーションをカードの外に配置する */
+  .swiper {
+    padding-bottom: 0 !important; /* ドット分の余白は不要 */
+  }
+
+  .swiper-pagination {
+    position: static !important; /* absoluteやrelative解除 */
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .swiper-container {
+    margin-bottom: 2rem; /* ページネーション分のスペース */
+  }
+  }
+
+.tea-item h3,
+.tea-description,
+.tea-ingredients {
+  word-break: keep-all;       /* 単語の途中で折り返さない（英語） */
+  overflow-wrap: break-word;  /* 長すぎたら単語ごとに折り返す */
+  white-space: normal;        /* 通常の改行に戻す */
+}
+
+
+
+/* スマホ用：画面幅が768px(ipad縦)以下 */
+@media screen and (max-width: 770px) {
+
+  header {
+    height: 8vh;
+  }
+
+  /* ハンバーガー表示 */
+  .menu-toggle {
+    display: flex;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  /* ナビ初期非表示 */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #FFF9EE;
+    width: 100%;
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+
+  /* ハンバーガークリック後に表示されるスタイル */
+  .nav-links.active {
+    display: flex !important;
+  }
+
+  .nav-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-links ul li {
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-links ul li a {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #3F3F3F;
+  }
+
+  /* その他 */
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sns-icons a img {
+    height: 24px;
+  }
+
+  .sns-icons {
+    display: flex;
+  }
+
+
+
+  body {
+    font-size: 15px;
+  }
+
+.section-title {
+    font-size: 1.25rem; /* 約20px */
+  }
+
+.section-text p,
+.store-concept-text p {
+    font-size: 0.95rem; /* 約15.2px */
+  }
+
+.tea-ingredients {
+    font-size: 0.75rem; /* 約12px */
+  }
+
+
+
+  .store-concept-container {
+    flex-direction: column; /* ← スマホでは縦並びに切り替え */
+  }
+
+  .store-concept-text {
+    order: 1;
+  }
+
+  .store-concept-image {
+    order: 2;
+  }
+
+  .store-concept-image img {
+    aspect-ratio: 4 / 3;
+    object-position: center top; /* 必要なら top にしてもOK */
+  }
+
+  .product-intro {
+    height: auto;
+    padding: 20px 0;
+  }
+
+
+  /* スワイパー */
+/* スマホ幅なら1枚表示 */
+  .swiper-slide {
+    width: 100% !important;  /* 横幅を画面いっぱいに */
+    margin: 0 auto !important; /* 中央寄せ */
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .swiper {
+    padding: 0 0 2rem !important; /* ページネーション分 */
+  }
+
+  .swiper-container {
+    padding: 0;
+    margin-bottom: 3rem;
+  }
+
+  .swiper-pagination {
+    position: static !important;
+    margin-top: 1rem;
+  }
+
+  
+  
+.swiper-button-prev,
+.swiper-button-next {
+  width: 3em !important; /* 強制的に小さく */
+  height: 3em !important; /* 強制的に小さく */
+  top: 40% !important; /* 上から40%の位置に配置 */
+  margin-top: 0 !important; /* デフォルトのマージンをリセット */
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 1em !important; /* 矢印アイコン自体も小さく */
+} 
+  .product {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .tea-list {
+    grid-template-columns: 1fr;
+  }
+
+  .concept, .product-list, .contact {
+    padding: 30px 15px;
+  }
+
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-left {
+    order: 1; /* 先に表示（テキスト） */
+    max-width: 100%;
+    margin-right: 0;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .map-container {
+    order: 2; /* 後に表示（地図） */
+    max-width: 100%;
+    width: 100%;
+  }
+
+
+  .map-container iframe {
+    height: 250px;
+    width: 100%;
+  }
+  
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/* PC用（768px以上）ナビ表示・ハンバーガー非表示 */
+@media screen and (min-width: 768px) {
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .left-section, .center-section, .right-section {
+    display: flex;
+    align-items: center;
+  }
+
+  .center-section {
+    flex: 1;
+    justify-content: right;
+  }
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 5rem;  /* ← ここの調整で距離を決める */
+  }
+
+  .sns-icons a img {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+
+  .sns-icons a img:hover {
+    opacity: 1;
+  }
+  
+
+  /* ナビゲーション表示 */
+  .nav-links {
+    border-bottom: none;  /* ← 念のため明示しておく */  
+    display: block !important;  /* 上書きで表示強制 */
+    position: static;
+    max-width: none;
+    width: auto;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .nav-links a {
+    border-bottom: none;
+    text-decoration: none;
+  }
+  
+  .nav-links ul {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-links li {
+    border-bottom: none;
+  }
+
+  /* ハンバーガーは非表示 */
+  .menu-toggle {
+    display: none;
+  }
+  
+}
