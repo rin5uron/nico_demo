@@ -5,18 +5,17 @@
   box-sizing: border-box;
 }
 
-body {
+html,body {
   font-family: 'Zen Old Mincho', 'Shippori Mincho', serif;
   background-color: #FFF9EE;
   color: #3F3F3F;
   line-height: 1.6;
   font-size: 1rem;
+  writing-mode: horizontal-tb !important;
 }
 
 /* ヘッダー */
-
 .header-container {
-  position: sticky;/*　ヘッダーを固定表示 */
   height: 9vh;/*　画面の高さの9% */
   display: flex;/*　ヘッダーを横並びに配置 */
   justify-content: space-between;
@@ -83,40 +82,48 @@ body {
 
 
 
+
+
+
+
+
+
+
 /* ナビゲーションメニュー */
 .nav-links {
-  display: none; /* 初期状態では非表示 */
-  position: absolute;
-  top: 100%; /* ヘッダーの下に配置 */
-  right: 0;
-  background-color: #F3F0E8;
+  display: none;
+  left: 0;
+  background-color: #FFF9EE;
   width: 100%;
   max-width: 250px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   z-index: 100;
+  flex-direction: column;      /* ← ここに統合でOK */
 }
+
+
 
 .nav-links.active {
   display: block; /* クリック時に表示 */
 }
 
 .nav-links ul {
-  list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .nav-links ul li {
   border-bottom: 1px solid #e0dcd0;
+  min-height: 48px;
 }
 
 .nav-links ul li:last-child {
   border-bottom: none;
 }
 
+
 .nav-links ul li a {
   display: block;
-  padding: 15px 20px;
   color: #536F69;
   font-size: 1rem;
   transition: background-color 0.3s;
@@ -129,6 +136,13 @@ body {
 
 .nav-links ul li a:hover {
   background-color: #e0dcd0;
+}
+
+.nav-links,
+.nav-links ul,
+.nav-links ul li,
+.nav-links ul li a {
+  writing-mode: horizontal-tb !important;
 }
 
 /* メインビジュアル */
@@ -612,11 +626,13 @@ footer {
 @media screen and (max-width: 770px) {
 
   header {
+    position: relative;
     height: 8vh;
   }
 
   /* ハンバーガー表示 */
   .menu-toggle {
+    position: relative;
     display: flex;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
@@ -624,23 +640,38 @@ footer {
 
   /* ナビ初期非表示 */
   .nav-links {
-    display: none;
-    flex-direction: column;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 8px);
     left: 0;
+    width: 180px;           /* ここを好きな幅に調整！ */
+    max-width: 90vw;        /* 画面幅の90%まで */
+    min-width: 140px;       /* 必要なら最小幅も指定 */
+    box-sizing: border-box;
+    display: none;
     background-color: #FFF9EE;
-    width: 100%;
     padding: 1rem 0;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 100;
   }
 
+  .nav-links.active {
+    display: flex !important;
+    flex-direction: column;          /* ← これもここで入れておくと安心 */
+  }
+  
+  
   /* ハンバーガークリック後に表示されるスタイル */
   .nav-links.active {
     display: flex !important;
   }
 
+  .nav-links ul,
+  .nav-links ul li,
+  .nav-links ul li a {
+    width: 100%;
+    box-sizing: border-box;
+    writing-mode: horizontal-tb !important;
+  }
   .nav-links ul {
     display: flex;
     flex-direction: column;
@@ -652,10 +683,11 @@ footer {
 
   .nav-links ul li {
     width: 100%;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
   }
 
   .nav-links ul li a {
+    padding: 0.5rem 0;
     display: block;
     width: 100%;
     font-size: 1rem;
@@ -663,6 +695,7 @@ footer {
     color: #3F3F3F;
   }
 
+  
   /* その他 */
   .right-section {
     display: flex;
@@ -802,12 +835,12 @@ footer {
   }
   
 
-
-
-
-
-
 }
+
+
+
+
+
 
 
 
@@ -852,7 +885,6 @@ footer {
   .nav-links {
     border-bottom: none;  /* ← 念のため明示しておく */  
     display: block !important;  /* 上書きで表示強制 */
-    position: static;
     max-width: none;
     width: auto;
     background-color: transparent;
