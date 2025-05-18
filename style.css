@@ -12,7 +12,8 @@ html,body {
   line-height: 1.6;
   font-size: 1rem;
   writing-mode: horizontal-tb !important;
-}
+  overflow-x: hidden;/* 横スクロールを防ぐ*/
+} 
 
 /* ヘッダー */
 .header-container {
@@ -632,27 +633,39 @@ footer {
 
   /* ハンバーガー表示 */
   .menu-toggle {
-    position: relative;
     display: flex;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
 
   /* ナビ初期非表示 */
+  .header-container {
+    position: relative; /* ヘッダーを親要素にすることでナビゲーションの位置を超失*/
+  }
   .nav-links {
     position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    width: 180px;           /* ここを好きな幅に調整！ */
-    max-width: 90vw;        /* 画面幅の90%まで */
-    min-width: 140px;       /* 必要なら最小幅も指定 */
+    top: 100%;
+    right: 0 ;
+    left: auto;
+    width: 180px;
+    max-width: 90vw;
+    min-width: 140px;
     box-sizing: border-box;
     display: none;
     background-color: #FFF9EE;
-    padding: 1rem 0;
+    padding: 0;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 100;
+    flex-shrink: 0;
+    min-width: 0;
   }
+
+html, body {
+  overflow-x: hidden;
+}
+.header-container, .right-section {
+  overflow: visible;
+}
 
   .nav-links.active {
     display: flex !important;
@@ -890,6 +903,11 @@ footer {
     background-color: transparent;
     box-shadow: none;
   }
+
+  .nav-links.active {
+    display: block !important;
+  }
+  
   .nav-links a {
     border-bottom: none;
     text-decoration: none;
