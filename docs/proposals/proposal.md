@@ -1,3 +1,6 @@
+ドキュメント版
+https://docs.google.com/document/d/1uHfFIn-1Kbyb584KlRGu2L85W0N7b9YKNY_U73eof94/edit?tab=t.0
+
 # Webサイト制作 ご提案書（簡易版）
 
 提案日：2025年7月30日  
