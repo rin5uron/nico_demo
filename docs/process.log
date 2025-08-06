@@ -1,0 +1,12 @@
+## v0.1.0-alpha - 2025-08-06
+### Added
+- クライアント提案前の初期仕様・デザイン案をコミットタグをつけて保存
+  - 要件定義 (`docs/spec/requirements_definition.md`)
+  - サイトコンセプト (`docs/spec/concept.md`)
+  - 参考サイト分析とデザイン方向性 (`docs/spec/reference_sites.md`)
+  - サイトマップ (`docs/spec/sitemap.md`)
+- 初期デザイン案の参考画像 (`docs/media/notes/250731.png`) を追加
+
+### Changed
+- コミットメッセージを「feat: クライアント提案前の初期仕様・デザイン案を策定」に修正
+- タグ名を `v0.1.0-alpha` に変更
