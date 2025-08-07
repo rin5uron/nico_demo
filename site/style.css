@@ -16,6 +16,16 @@ html,body {
 } 
 
 /* ヘッダー */
+header {
+  position: fixed; /* ヘッダーを固定 */
+  width: 100%; /* 幅を100%に */
+  background-color: #FFF9EE; /* 背景色を再設定 */
+  top: 0;
+  left: 0;
+  z-index: 999; /* 他の要素より手前に表示 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .header-container {
   height: 9vh;/*　画面の高さの9% */
   display: flex;/*　ヘッダーを横並びに配置 */
@@ -50,9 +60,9 @@ html,body {
 
 
 .sns-icons a img {
-  height: 5vh;/*　SNSアイコンの高さを画面の5%に設定 */
-  margin-left: 10px;/*　SNSアイコンの左側に10pxのマージンを設定 */
-  /* SNSアイコンに透明度変化 */
+  height: 32px; /* 固定値に設定 */
+  width: 32px;  /* heightと同じ値に設定 */
+  margin-left: 10px;
   transition: opacity 0.3s;
 }
 
@@ -155,6 +165,10 @@ html,body {
   margin-bottom: 2vh;
 }
 
+main {
+  padding-top: 9vh; /* ヘッダーの高さ分 */
+}
+
 
 .main-visual img {
   width: 100%;
@@ -222,6 +236,13 @@ html,body {
   gap: 2rem;
   justify-content: center;
   align-items: flex-start;
+}
+
+.instagram-feed-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .news-calendar-area,
@@ -489,6 +510,68 @@ html,body {
   margin-bottom: 1rem;
 }
 
+/* スライダー3の画像高さ調整 */
+.mySwiper3 .swiper-slide {
+  height: 80vh; /* 画面の高さの80% */
+  justify-content: center; /* コンテンツを垂直方向中央に配置 */
+}
+.mySwiper3 .swiper-slide img {
+  width: 100%;
+  height: auto; /* 高さを自動調整 */
+  max-height: 70%; /* スライドの高さの70%を超えないようにする */
+  object-fit: contain; /* 画像全体が表示されるように変更 */
+  margin-bottom: 1rem; /* 画像とテキストの間に余白 */
+}
+
+.mySwiper3 .swiper-slide h2 {
+  font-size: 1.8rem; /* タイトルを大きく */
+  margin-bottom: 0.5rem; /* タイトルの下に余白 */
+  color: #3F3F3F; /* 良いコントラストを確保 */
+}
+
+.mySwiper3 .swiper-slide p {
+  font-size: 1.1rem; /* 説明文のサイズを調整 */
+  line-height: 1.5;
+  color: #555; /* 説明文の色を少し薄く */
+}
+
+.news-instagram-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: stretch; /* 高さを揃える */
+}
+
+.calendar-section, .instagram-section {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(228, 218, 204, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-section h3, .instagram-section h3 {
+    font-size: 1.1rem;
+    color: #777;
+    margin-bottom: 1rem;
+    font-weight: normal;
+}
+
+.calendar-section img {
+    width: 100%;
+    height: auto;
+    flex-grow: 1;
+    object-fit: cover;
+}
+
+.instagram-section .instagram-media {
+    flex-grow: 1;
+}
+
+
 
 
 
@@ -550,8 +633,8 @@ html,body {
 
 .tea-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* PCでは2列 */
-  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr); /* PCでは4列 */
+  gap: 1rem;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -611,6 +694,206 @@ html,body {
 
 .tea-item img:hover {
   transform: scale(1.05);
+}
+
+/* 全てのaタグから下線を削除 */
+a {
+  text-decoration: none !important;
+}
+
+/* サブセクションタイトル */
+.subsection-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #536F69;
+  margin: 3rem 0 1.5rem; /* 上下の余白を調整 */
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #536F69;
+  letter-spacing: 0.03em;
+  text-align: left;
+  padding-left: 1vw;
+}
+
+/* お酒の表示例：ギャラリー形式 */
+.product-grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.product-gallery-item {
+  background: rgba(228, 218, 204, 0.6);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.product-gallery-item img {
+  width: 100%;
+  height: 150px; /* 固定の高さ */
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.product-gallery-item p {
+  font-size: 0.9rem;
+  color: #3F3F3F;
+}
+
+/* お酒の表示例：注目商品 */
+.product-featured {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  background: rgba(228, 218, 204, 0.6);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  align-items: center;
+}
+
+.product-featured img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-featured-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.product-featured-text h3 {
+  font-size: 1.5rem;
+  color: #536F69;
+  margin-bottom: 1rem;
+}
+
+.product-featured-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #3F3F3F;
+}
+
+/* お酒の表示例：リスト形式 */
+.product-list-display {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* PCでは2列 */
+  gap: 1.5rem;
+}
+
+.product-list-display li {
+  background: rgba(228, 218, 204, 0.6);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  text-align: left; /* テキストを左寄せに */
+}
+
+.product-list-display li a {
+  display: flex; /* flexboxで画像とテキストを横に並べる */
+  flex-direction: row; /* 横並び */
+  align-items: center; /* 垂直方向中央揃え */
+  text-decoration: none; /* 下線を削除 */
+  color: inherit; /* 親要素の色を継承 */
+  height: 100%; /* カード全体をリンクにする */
+}
+
+.product-list-display li img {
+  width: 100px; /* 画像の固定幅 */
+  height: 100px; /* 画像の固定高さ */
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 1rem; /* 画像とテキストの間に余白 */
+  margin-bottom: 0; /* 縦並び時のマージンをリセット */
+}
+
+.product-list-display li h3 {
+  font-size: 1.1rem;
+  color: #536F69;
+  margin-bottom: 0.3rem;
+}
+
+.product-list-display li p {
+  font-size: 0.9rem;
+  color: #3F3F3F;
+  flex-grow: 1; /* テキストが残りのスペースを埋める */
+}
+
+/* 全画面ギャラリー */
+.product-fullscreen-gallery {
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.product-fullscreen-gallery img {
+    width: 100%;
+    height: auto;
+    display: none; /* 初期状態では両方の画像を非表示 */
+}
+
+.fullscreen-pc {
+    display: block; /* PCではPC用画像を表示 */
+}
+
+.fullscreen-mobile {
+    display: none; /* PCではモバイル用画像を非表示 */
+}
+
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 770px) {
+  .product-list-display {
+    grid-template-columns: 1fr; /* スマホでは1列 */
+  }
+  .product-list-display li a {
+    flex-direction: column; /* スマホでは縦並びに戻す */
+    text-align: center;
+  }
+  .product-list-display li img {
+    margin-right: 0;
+    margin-bottom: 0.8rem;
+  }
+
+  .fullscreen-pc {
+      display: none; /* モバイルではPC用画像を非表示 */
+  }
+
+  .fullscreen-mobile {
+      display: block; /* モバイルではモバイル用画像を表示 */
+  }
+}
+
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 770px) {
+  .product-grid-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .product-featured {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-featured img {
+    max-width: 200px;
+  }
+
+  .product-list-display li {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 
@@ -862,6 +1145,7 @@ html, body {
 
   .sns-icons a img {
     height: 24px;
+    width: 24px;
   }
 
   .sns-icons {
