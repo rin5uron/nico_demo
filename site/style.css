@@ -196,6 +196,17 @@ header {
   height: 2px;
   background-color: var(--text);
   transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* --- Main Visual --- */
@@ -701,4 +712,91 @@ footer .legal-notice {
   }
   .fullscreen-pc { display: none; }
   .fullscreen-mobile { display: block; }
+}
+
+/* --- Tea Section Featured --- */
+.tea-section-featured {
+    margin-bottom: 4rem;
+}
+
+/* --- DESKTOP STYLES --- */
+.tea-grid-mobile {
+    display: none; /* Hidden on desktop */
+}
+
+.tea-hero-desktop {
+    display: block; /* Shown on desktop */
+}
+
+.hero-card {
+    position: relative;
+    margin: 0 auto 2rem; /* Centered, with bottom margin */
+    padding: 1.5rem; /* Creates the "trimmed" effect */
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.hero-card img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.hero-card-info {
+    position: absolute;
+    bottom: 1.5rem; /* Aligns with card padding */
+    right: 1.5rem;  /* Aligns with card padding */
+    left: 1.5rem;   /* Aligns with card padding */
+    padding: 2rem 1.5rem 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white;
+    border-radius: 0 0 4px 4px;
+    text-align: left;
+}
+
+.hero-card-info h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.hero-card-info .tea-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hero-card-info .tea-ingredients {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+    font-family: var(--font-sans);
+    margin-bottom: 1.5rem;
+}
+
+.hero-card-info .tea-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.tea-small-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* --- MOBILE STYLES --- */
+@media (max-width: 768px) {
+    .tea-hero-desktop {
+        display: none; /* Hide desktop hero */
+    }
+
+    .tea-grid-mobile {
+        display: grid; /* Show mobile grid */
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }

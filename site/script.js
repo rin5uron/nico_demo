@@ -2,13 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Mobile Menu --- //
     const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('#nav-links');
+    const nav = document.querySelector('.global-nav');
 
     if (menuToggle && nav) {
         menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            const isOpen = nav.classList.contains('active');
+            nav.classList.toggle('is-open');
+            const isOpen = nav.classList.contains('is-open');
             menuToggle.setAttribute('aria-expanded', isOpen);
+            menuToggle.classList.toggle('is-open'); 
             if(isOpen) {
                 menuToggle.setAttribute('aria-label', 'メニューを閉じる');
             } else {
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Swiper Initialization --- //
-    const swiper = new Swiper('.mySwiper2', {
+    const swiper = new Swiper('.mySwiper', {
         loop: true,
         slidesPerView: 'auto',
         spaceBetween: 16,
