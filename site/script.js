@@ -16,6 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 menuToggle.setAttribute('aria-label', 'メニューを開く');
             }
         });
+
+        // Close mobile menu when a nav link is clicked (UX improvement, no visual change)
+        const navLinks = document.querySelectorAll('.global-nav a');
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('is-open')) {
+                    nav.classList.remove('is-open');
+                    menuToggle.classList.remove('is-open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.setAttribute('aria-label', 'メニューを開く');
+                }
+            });
+        });
     }
 
     // --- Fade In Animation on Scroll --- //

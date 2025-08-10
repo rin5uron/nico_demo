@@ -53,11 +53,14 @@ a:hover {
 
 main section {
   padding-block: 6rem;
+  /* 固定ヘッダー分のアンカー位置補正（表示内容は変えず、スクロール位置のみ調整） */
+  scroll-margin-top: 90px;
 }
 
 @media (max-width: 768px) {
   main section {
     padding-block: 4rem;
+    scroll-margin-top: 70px;
   }
 }
 
@@ -701,6 +704,10 @@ footer .legal-notice {
   }
   .section-title h2 {
     font-size: 1.8rem;
+  }
+  /* Product intro text a bit smaller on mobile for better fit */
+  #product .section-text {
+    font-size: 0.95rem;
   }
   .news-instagram-container,
   .product-list-display {
