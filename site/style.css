@@ -1,1396 +1,809 @@
-/* リセットCSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* --- Base & Typography --- */
+:root {
+  --font-sans: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  --font-serif: 'Zen Old Mincho', 'Shippori Mincho', serif;
+  --bg: #F9F8F6;
+  --text: #3d3d3d;
+  --brand-main: #4A6A5A;
+  --brand-accent: #A88B74;
+  --surface: #FFFFFF;
+  --border: #EAE6E1;
+  --light-gray: #f7f7f7;
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --radius-md: 8px;
 }
 
-html,body {
-  font-family: 'Zen Old Mincho', 'Shippori Mincho', serif;
-  background-color: #FFF9EE;
-  color: #3F3F3F;
-  line-height: 1.6;
-  font-size: 1rem;
-  writing-mode: horizontal-tb !important;
-  overflow-x: hidden;/* 横スクロールを防ぐ*/
-} 
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* ヘッダー */
+html, body {
+  font-family: var(--font-serif);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  padding-top: 80px; /* Header height */
+}
+
+a {
+  color: var(--brand-main);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- Layout & Containers --- */
+.container {
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+main section {
+  padding-block: 6rem;
+  /* 固定ヘッダー分のアンカー位置補正（表示内容は変えず、スクロール位置のみ調整） */
+  scroll-margin-top: 90px;
+}
+
+@media (max-width: 768px) {
+  main section {
+    padding-block: 4rem;
+    scroll-margin-top: 70px;
+  }
+}
+
+/* --- Animations --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Header --- */
 header {
-  position: fixed; /* ヘッダーを固定 */
-  width: 100%; /* 幅を100%に */
-  background-color: #FFF9EE; /* 背景色を再設定 */
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 999; /* 他の要素より手前に表示 */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 80px;
+  background-color: rgba(249, 248, 246, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  transition: box-shadow 0.3s ease;
 }
 
 .header-container {
-  height: 9vh;/*　画面の高さの9% */
-  display: flex;/*　ヘッダーを横並びに配置 */
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  top: 0;
-  z-index: 999;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);/*　ヘッダーに立体感を与える */
+  height: 100%;
+  padding: 0 5%;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
 }
+
 .logo img {
-  height: 7vh;/*　ロゴの高さを画面の7%に設定 */
+  height: 40px;
 }
 
 .shop-name {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: #4A4A4A; /* ロゴの濃淡に寄せたグレー系 */
-  font-family: 'Zen Old Mincho', serif; /* ロゴに近い和風書体へ */
-  margin-left: 0.5rem;
-  line-height: 1;
-  white-space: nowrap; /* 折り返さず横に並べる！ ← モバイルでの縦潰れ防止 */
+  font-family: var(--font-serif);
+  white-space: nowrap;
 }
 
+.global-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
 
+.global-nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
 
+.global-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--brand-main);
+  transition: width 0.4s ease;
+}
+
+.global-nav a:hover {
+  color: var(--brand-main);
+  text-decoration: none;
+}
+
+.global-nav a:hover::after {
+  width: 100%;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sns-icons {
+  display: flex;
+  gap: 1rem;
+}
 
 .sns-icons a img {
-  height: 32px; /* 固定値に設定 */
-  width: 32px;  /* heightと同じ値に設定 */
-  margin-left: 10px;
-  transition: opacity 0.3s;
-}
-
-.sns-icons a img:hover {
+  height: 24px;
+  width: 24px;
   opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
+.sns-icons a:hover img {
+  opacity: 1;
+}
 
-/* ハンバーガーメニュー */
 .menu-toggle {
-  display: flex;/*　子要素を自由に配置できる箱を作る*/
-  flex-direction: column;/*　ハンバーガーを作る線をを縦並びに配置 */
-  cursor: pointer;/*　カーソルをポインターゲットに設定 */
-  margin-left: 0.5rem;/*　メニューアイコンの左側にマージンを設定 */ 
-  background: none;
-  border: none;
-  padding: 0.5rem;  /* htmlタグのフォントサイズが基準とした単位rem / 8px相当、しかし画面サイズやユーザー設定に応じて変化 */
+  display: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  flex-direction: column;
+  justify-content: space-around;
+  background: none; border: none;
 }
-
 
 .menu-toggle span {
   display: block;
-  width: 2rem;      /* 固定pxよりもremを使う */
-  height: 0.2rem;   /* 細さも比率で */
-  margin-bottom: 0.4rem;
-  background-color: #3F3F3F; /* 線の色を追加 */
+  width: 100%;
+  height: 2px;
+  background-color: var(--text);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
 }
 
+.menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
 
+/* --- Main Visual --- */
+.main-visual {
+  height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  padding: 0;
+}
 
-
-
-
-
-
-
-
-/* ナビゲーションメニュー */
-.nav-links {
-  display: none;
+.main-visual img {
+  position: absolute;
+  top: 0;
   left: 0;
-  background-color: #FFF9EE;
   width: 100%;
-  max-width: 250px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  z-index: 100;
-  flex-direction: column;      /* ← ここに統合でOK */
-}
-
-
-
-.nav-links.active {
-  display: block; /* クリック時に表示 */
-}
-
-.nav-links ul {
-  padding: 0;
-  margin: 0;
-}
-
-.nav-links ul li {
-  border-bottom: 1px solid #e0dcd0;
-  min-height: 48px;
-}
-
-.nav-links ul li:last-child {
-  border-bottom: none;
-}
-
-
-.nav-links ul li a {
-  display: block;
-  color: #536F69;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-  border-bottom: none;
-  text-decoration: none;
-  line-height: 1;
-  padding: 0.5rem 0;
-  display: inline-block;
-}
-
-.nav-links ul li a:hover {
-  background-color: #e0dcd0;
-}
-
-.nav-links,
-.nav-links ul,
-.nav-links ul li,
-.nav-links ul li a {
-  writing-mode: horizontal-tb !important;
-}
-
-/* メインビジュアル */
-.main-visual {
-  height: 85vh;/*　メインビジュアルの高さを画面の40%に設定 */
-  width: 100%;
-  position: relative;
-  text-align: center;
-  margin-bottom: 2vh;
-}
-
-main {
-  padding-top: 9vh; /* ヘッダーの高さ分 */
-}
-
-
-.main-visual img {
-  width: 100%;
-  height: 100%; /* 画面の高さの40%  */
-  object-fit: cover; /* 中央を切り取って全体を満たす */
-  object-position: center; /* 中央に配置 */
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.9);
 }
 
 .main-visual-text {
-  writing-mode: vertical-rl; /* 縦書き右から左 */
-  text-align: left;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgba(255, 255, 255, 0.9);
-  font-family: 'Shippori Mincho', serif;
-  background: none;
-  font-size: 1.5rem;
-  line-height: 2;
-}
-
-
-
-
-/* メインビジュアル */
-.main-visual {
-  height: 85vh;/*　メインビジュアルの高さを画面の40%に設定 */
-  width: 100%;
-  position: relative;
+  color: white;
   text-align: center;
-  margin-bottom: 2vh;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-
-.main-visual img {
-  width: 100%;
-  height: 100%; /* 画面の高さの40%  */
-  object-fit: cover; /* 中央を切り取って全体を満たす */
-  object-position: center; /* 中央に配置 */
-}
-
-.main-visual-text {
-  writing-mode: vertical-rl; /* 縦書き右から左 */
-  text-align: left;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgba(255, 255, 255, 0.9);
-  font-family: 'Shippori Mincho', serif;
-  background: none;
-  font-size: 1.5rem;
-  line-height: 2;
-}
-
-/* お知らせ & Instagramセクション */
-.news-instagram {
-  padding: 3rem 0;
-}
-
-.news-instagram-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.instagram-feed-container {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.news-calendar-area,
-.instagram-feed-area {
-  flex: 1;
-  min-width: 300px;
-  max-width: 500px;
-  background: rgba(228, 218, 204, 0.6);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  text-align: center;
-}
-
-.news-calendar-area img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-top: 1rem;
-}
-
-.instagram-feed-area div {
-  margin-top: 1rem;
-}
-
-/* お知らせ（ニュース一覧）セクション */
-.news-list {
-  padding: 3rem 0;
-}
-
-.news-list-content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.news-list-content li {
-  margin-bottom: 0.8rem;
-}
-
-.news-list-content a {
-  color: #3F3F3F;
-  text-decoration: none;
+.main-visual-text p {
   font-size: 1.1rem;
-  transition: color 0.3s;
+  margin-bottom: 0.5rem;
 }
 
-.news-list-content a:hover {
-  color: #536F69;
+.main-visual-text h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  letter-spacing: 0.1em;
 }
 
-.news-list-content .more-link {
-  text-align: right;
-  margin-top: 1.5rem;
-}
-
-.news-list-content .more-link a {
-  font-size: 1rem;
-  color: #536F69;
-  text-decoration: underline;
-}
-
-/* イベントセクション */
-.event-info {
-  padding: 3rem 0;
-  text-align: center;
-}
-
-.event-info-content {
-  background: rgba(228, 218, 204, 0.6);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  margin-top: 2rem;
-}
-
-.event-info-content p {
-  margin-bottom: 1em;
-}
-
-.event-info-content .more-link {
-  text-align: right;
-  margin-top: 1.5rem;
-}
-
-.event-info-content .more-link a {
-  font-size: 1rem;
-  color: #536F69;
-  text-decoration: underline;
-}
-
-/* メインビジュアル下からフッター上までの統一スタイル*/
-.container {
-  max-width: 1200px;
-  width: 100%;/*　狭い画面でも100%でちぢむ */
-  margin: 0 auto;
-  padding: 0 5vw;
-}
-
-/* セクション見出しの統一スタイル */
+/* --- Section Titles --- */
 .section-title {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #536F69;
-  margin: 4rem 0 2rem; /* 上下の余白を統一：上3rem、下2rem */
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #536F69;
-  letter-spacing: 0.05em;
-  text-align: left;
-  padding-left: 1vw;
-}
-
-/* 段落ごとに改行する */
-.section-text p {
-  margin-bottom: 1em; /* 好みでpxでもOK：例 margin-bottom: 16px; */
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #3F3F3F;
-  padding-left: 1vw;
-}
-
-.section-text a {
-  color: #141c1a;
-
-}
-
-
-
-
-/* 店舗紹介セクションのレイアウトスタイル */
-  /* 例：お店について（store-concept）*/
-.store-concept {
-  min-height: auto; /* 固定高さを解除 */
-  padding: 3rem 0;  /* 余白で高さ調整 */
-}
-
-
-
-
-.store-concept-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 20px;
-  flex-direction: row;
-  max-width: 100%; /* ← 幅を制限しない */
-  width: 100%;
-}
-
-.store-concept-text {
-  flex: 1;
-  min-width: 280px;
-}
-
-.store-concept-text p {
-  margin-bottom: 1em; /* 好みでpxでもOK：例 margin-bottom: 16px; */
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #3F3F3F;
-    padding-left: 1vw;
-}
-
-.store-concept-image {
-  flex: 1;
-  min-width: 200px;
-  aspect-ratio: 4 / 3; 
-}
-
-
-.store-concept-image img {
-  width: 100%;
-  max-width: 450px;
-  max-height: 40vh;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  object-position: center center;
-  border-radius: 5px;
-}
-
-
-
-
-
-
-.product {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-/* .containerの追加要素 */
-.product-container {
-  max-height: none;
-  padding: 0 0 3rem; /* 下部に余白を追加 */
-}
-
-  
-
-/* 全体の枠 */
-.swiper-container {
-  max-width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
-  padding-bottom: 60px; /* 下部に余白を追加してページネーション用のスペースを確保 */
-}
-  
-
-
-.swiper {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 2rem; /* 左右に少し余白を持たせて矢印が表示されるように */;
-  box-sizing: border-box;
-  overflow-x: visible; /* 矢印隠れないように */
-}
-
-
-/* ページネーションをカード外に独立配置 */
-.swiper-pagination {
-  position: absolute;
-  bottom: -40px !important; /* カード下の位置をもっと下に調整 */
-  left: 0;
-  width: 100%;
   text-align: center;
-  z-index: 10;
-  margin-top: 2rem; /* 余白増加 */
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
-
-/* スライド1枚1枚をカード風に */
-.swiper-slide {
-  background: rgba(228, 218, 204, 0.6);
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  max-width: 90vw;
-  min-width: 240px;
-  width: auto; /* スマホでは画面幅の8割、PCは max-width が効く */
-  transition: transform 0.3s ease, opacity 0.3s ease; /* アニメーション効果を追加 */
-  opacity: 0.7; /* 非アクティブなスライドは少し透明に */
-  margin: 0 auto;
+.section-title h2 {
+  font-size: 2rem;
+  font-weight: normal;
+  color: var(--brand-main);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
 }
 
-.swiper-slide a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
+.section-title p {
+  font-size: 0.9rem;
+  color: var(--brand-accent);
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-/* アクティブなスライド */
-.swiper-slide-active {
-  transform: scale(1.05); /* アクティブなスライドを少し大きく */
-  opacity: 1; /* アクティブなスライドは完全に不透明に */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* シャドウも強調 */
+.subsection-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--brand-main);
+    margin: 4rem 0 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
 }
 
-/* スライド画像 */
-.swiper-slide img {
-  border-radius: 5px;
-  object-fit: cover;
-  height: auto;
-  max-height: 240px;
-  width: 100%;
-  margin-bottom: 1rem;
+.subsection-title-small {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--brand-accent);
+    margin: 3rem 0 1.5rem;
+    text-align: center;
 }
 
-/* スライダー3の画像高さ調整 */
-.mySwiper3 .swiper-slide {
-  height: 80vh; /* 画面の高さの80% */
-  justify-content: center; /* コンテンツを垂直方向中央に配置 */
-}
-.mySwiper3 .swiper-slide img {
-  width: 100%;
-  height: auto; /* 高さを自動調整 */
-  max-height: 70%; /* スライドの高さの70%を超えないようにする */
-  object-fit: contain; /* 画像全体が表示されるように変更 */
-  margin-bottom: 1rem; /* 画像とテキストの間に余白 */
+.section-text {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.mySwiper3 .swiper-slide h2 {
-  font-size: 1.8rem; /* タイトルを大きく */
-  margin-bottom: 0.5rem; /* タイトルの下に余白 */
-  color: #3F3F3F; /* 良いコントラストを確保 */
-}
-
-.mySwiper3 .swiper-slide p {
-  font-size: 1.1rem; /* 説明文のサイズを調整 */
-  line-height: 1.5;
-  color: #555; /* 説明文の色を少し薄く */
-}
-
+/* --- News & Instagram --- */
 .news-instagram-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: stretch; /* 高さを揃える */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
 }
 
 .calendar-section, .instagram-section {
-    flex: 1;
-    min-width: 300px;
-    background: rgba(228, 218, 204, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    background: var(--surface);
 }
 
 .calendar-section h3, .instagram-section h3 {
-    font-size: 1.1rem;
-    color: #777;
-    margin-bottom: 1rem;
-    font-weight: normal;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    font-weight: 500;
+    opacity: 0.7;
 }
 
 .calendar-section img {
     width: 100%;
     height: auto;
-    flex-grow: 1;
-    object-fit: cover;
+    border-radius: 4px;
 }
 
 .instagram-section .instagram-media {
+    margin: 1px auto !important;
+    max-width: 100% !important;
+}
+
+.news-instagram-container {
+    align-items: stretch; /* 高さを揃える */
+}
+
+.calendar-section, .instagram-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-section img, .instagram-section .instagram-media {
     flex-grow: 1;
+    object-fit: contain;
+    max-height: 450px; /* 高さを制限 */
 }
 
 
-
-
-
-
-
-
-
-
-/* ページネーションドットのスタイル */
-.swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background-color: #ccc;
-  opacity: 0.6;
-  margin: 0 5px; /* ドット間の間隔 */
+/* --- News List --- */
+.news-list {
+    background: var(--light-gray);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
-/* アクティブなページネーションドットのスタイル */
-.swiper-pagination-bullet-active {
-  background-color: #536F69;
-  opacity: 1;
+.news-list-content ul {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-/* ナビ矢印ボタン */
-.swiper-button-prev,
-.swiper-button-next {
-  color: #536F69;
-  border-radius: 50%;
-  width: 30px; /* 少し大きく */
-  height: 30px; /* 少し大きく */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  z-index: 20; /* z-indexを上げて操作性を向上 */
-  cursor: pointer; /* カーソルをポインターに */
-  transition: background 0.3s, transform 0.2s; /* ホバーエフェクト */
+.news-list-content li {
+    border-bottom: 1px solid var(--border);
 }
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  background: rgba(255, 255, 255, 0.4);
-  transform: scale(1.1); /* ホバー時に少し大きく */
+.news-list-content li a {
+    display: block;
+    padding: 1rem 0;
+    color: var(--text);
+    transition: background-color 0.3s;
 }
 
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  color: #536F69;     /* ← 自分のテーマカラー */
-  font-size: 18px;
-  font-weight: bold;
+.news-list-content li a:hover {
+    background-color: #fff;
+    text-decoration: none;
 }
 
+.more-link {
+    text-align: right;
+    margin-top: 1.5rem;
+}
 
+/* --- Event Info --- */
+.event-info-content {
+    text-align: center;
+    padding: 3rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+}
 
-
-
-
-/* 商品一覧セクション */
-
-.tea-list {
+/* --- Store Concept --- */
+.store-concept-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* PCでは4列 */
-  gap: 1rem;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-.tea-item {
-  background: rgba(228, 218, 204, 0.6);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  text-align: center;
-  transition: transform 0.2s;
-  overflow: hidden; /* 画像がはみ出しても枠内 */
-  padding: 3vh 1vw;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
 }
 
-.tea-item a {
-  display: block;
+.store-concept-text {
+  max-width: 450px;
+  justify-self: end;
+}
+
+.store-concept-text p {
+  margin-bottom: 1.5rem;
+}
+
+.store-concept-image img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+/* --- Products --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-align: center;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft);
+}
+
+.product-card a {
   text-decoration: none;
   color: inherit;
 }
 
-.tea-item h3 {
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.product-card h4 {
   font-size: 1.2rem;
+  font-weight: 600;
   margin-bottom: 0.5rem;
-  white-space: nowrap; /* 折り返さない */
+  color: var(--brand-main);
 }
 
-.tea-description {
+.product-card .tea-description {
   font-size: 0.9rem;
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-.tea-ingredients {
-  font-size: 0.8rem;
-  font-style: italic;
-  color: #666;
-}
-
-.tea-price {
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 1rem;
-  margin-top: auto;
-  font-weight: bold;
-  color: #555;
-}
-
-.tea-price .tax {
-  font-size: 0.75em;  /* 価格の0.75倍の大きさに */
-  color: #666;
-}
-
-
-.tea-item img {
-  width: 90%;
-  height: auto;
-  aspect-ratio: 4 / 3; /* ✅ 比率を固定しつつ */
-  object-fit: cover;
-  border-radius: 5px;
-  display: block;
-  margin: 0 auto;
-}
-
-.tea-item img:hover {
-  transform: scale(1.05);
-}
-
-/* 全てのaタグから下線を削除 */
-a {
-  text-decoration: none;
-}
-
-/* リンクのデフォルト色をリセット */
-a:not(.nav-links a):not(.news-list-content a):not(.event-info-content a):not(.section-text a) {
-  color: inherit; /* 親要素の色を継承 */
-}
-
-/* サブセクションタイトル */
-.subsection-title {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #536F69;
-  margin: 3rem 0 1.5rem; /* 上下の余白を調整 */
-  padding-bottom: 0.3rem;
-  border-bottom: 1px solid #536F69;
-  letter-spacing: 0.03em;
-  text-align: left;
-  padding-left: 1vw;
-}
-
-/* お酒の表示例：ギャラリー形式 */
-.product-grid-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.product-gallery-item {
-  background: rgba(228, 218, 204, 0.6);
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  text-align: center;
-}
-
-.product-gallery-item a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-}
-
-.product-gallery-item img {
-  width: 100%;
-  height: 150px; /* 固定の高さ */
-  object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 0.5rem;
-}
-
-.product-gallery-item p {
-  font-size: 0.9rem;
-  color: #3F3F3F;
-}
-
-/* お酒の表示例：注目商品 */
-.product-featured {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 2rem;
-  background: rgba(228, 218, 204, 0.6);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  align-items: center;
-}
-
-.product-featured a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-}
-
-.product-featured img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.product-featured-text {
-  flex: 1;
-  min-width: 280px;
-}
-
-.product-featured-text h3 {
-  font-size: 1.5rem;
-  color: #536F69;
   margin-bottom: 1rem;
+  min-height: 54px; /* 3 lines */
 }
 
-.product-featured-text p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #3F3F3F;
+.product-card .tea-ingredients {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-sans);
 }
 
-/* お酒の表示例：リスト形式 */
-.product-list-display {
-  list-style: none;
-  padding: 0;
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* PCでは2列 */
-  gap: 1.5rem;
+.product-card .tea-price {
+  font-weight: bold;
+  color: var(--brand-accent);
 }
 
-.product-list-display li {
-  background: rgba(228, 218, 204, 0.6);
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  text-align: left; /* テキストを左寄せに */
+.tea-grid {
+    max-width: 900px; /* 4つのカードが並ぶのに十分な幅 */
+    margin: 0 auto; /* 中央揃え */
 }
 
-.product-list-display li a {
-  display: flex; /* flexboxで画像とテキストを横に並べる */
-  flex-direction: row; /* 横並び */
-  align-items: center; /* 垂直方向中央揃え */
-  text-decoration: none; /* 下線を削除 */
-  color: inherit; /* 親要素の色を継承 */
-  height: 100%; /* カード全体をリンクにする */
-}
 
-.product-list-display li img {
-  width: 100px; /* 画像の固定幅 */
-  height: 100px; /* 画像の固定高さ */
-  object-fit: cover;
-  border-radius: 5px;
-  margin-right: 1rem; /* 画像とテキストの間に余白 */
-  margin-bottom: 0; /* 縦並び時のマージンをリセット */
+/* --- Product Samples --- */
+.swiper-container {
+    margin: 2rem 0;
+    position: relative;
 }
-
-.product-list-display li h3 {
-  font-size: 1.1rem;
-  color: #536F69;
-  margin-bottom: 0.3rem;
+.swiper {
+    padding: 0 4rem 3rem;
 }
-
-.product-list-display li p {
-  font-size: 0.9rem;
-  color: #3F3F3F;
-  flex-grow: 1; /* テキストが残りのスペースを埋める */
+.swiper-slide {
+    text-align: center;
 }
-
-/* 全画面ギャラリー */
-.product-fullscreen-gallery {
+.swiper-slide img {
     width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+}
+.swiper-slide h2 {
+    font-size: 1.1rem;
+    color: var(--brand-main);
+}
+.swiper-slide p {
+    font-size: 0.9rem;
+}
+.swiper-button-prev, .swiper-button-next {
+    color: var(--brand-main);
+}
+.swiper-pagination-bullet-active {
+    background: var(--brand-main);
+}
+
+.product-grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+.product-gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 0.5rem;
+}
+.product-gallery-item p {
+    text-align: center;
+    font-weight: 600;
+    color: var(--brand-accent);
+}
+
+.product-list-display {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+.product-list-display li a {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    color: var(--text);
+    transition: box-shadow 0.3s;
+}
+.product-list-display li a:hover {
+    box-shadow: var(--shadow-soft);
+    text-decoration: none;
+}
+.product-list-display img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.product-featured {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    align-items: center;
     margin: 2rem 0;
 }
+.product-featured img {
+    width: 100%;
+    border-radius: var(--radius-md);
+}
 
+.product-fullscreen-gallery {
+    margin: 2rem 0;
+}
 .product-fullscreen-gallery img {
     width: 100%;
     height: auto;
-    display: none; /* 初期状態では両方の画像を非表示 */
+    border-radius: var(--radius-md);
 }
-
-.fullscreen-pc {
-    display: block; /* PCではPC用画像を表示 */
+.product-fullscreen-gallery .caption {
+    font-size: 0.8rem;
+    text-align: right;
+    color: #888;
+    margin-top: 0.5rem;
 }
+.fullscreen-mobile { display: none; }
 
-.fullscreen-mobile {
-    display: none; /* PCではモバイル用画像を非表示 */
-}
-
-
-/* レスポンシブ対応 */
-@media screen and (max-width: 770px) {
-  .product-list-display {
-    grid-template-columns: 1fr; /* スマホでは1列 */
-  }
-  .product-list-display li a {
-    flex-direction: column; /* スマホでは縦並びに戻す */
-    text-align: center;
-  }
-  .product-list-display li img {
-    margin-right: 0;
-    margin-bottom: 0.8rem;
-  }
-
-  .fullscreen-pc {
-      display: none; /* モバイルではPC用画像を非表示 */
-  }
-
-  .fullscreen-mobile {
-      display: block; /* モバイルではモバイル用画像を表示 */
-  }
-}
-
-
-/* レスポンシブ対応 */
-@media screen and (max-width: 770px) {
-  .product-grid-gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .product-featured {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .product-featured img {
-    max-width: 200px;
-  }
-
-  .product-list-display li {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-
-
-
-.tea-item h3,
-.tea-description,
-.tea-ingredients,
-.tea-price {
-  width: 90%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.tea-item h3{
-  margin-top: 0.7rem;
-}
-
-.tea-description,
-.tea-ingredients {
-  margin: 0.8rem auto; /* 上下に1remの余白、左右は自動（中央揃え） */
-  color: #3F3F3F;
-}
-
-
-  
-
-
-/* Instagramセクション */
-.instagram {
-  padding: 3rem 0;
-  text-align: center;
-}
-
-.instagram-feed {
-  /* Instagram埋め込みコードのスタイルは、埋め込みコード自体に依存するため、ここでは基本的な余白のみ */
-  margin-top: 2rem;
-}
-
-
-/* お問い合わせセクション */
-
+/* --- Contact --- */
 .contact-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  max-width: 100%;
-  margin: 0 auto;/* 中央寄せ（左右の margin を自動に） */
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 4rem;
+  border-radius: var(--radius-md);
 }
 
-
-.contact-left {
-  flex: 1; /* 比率1（1:2の割合で左側が1） */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 30%; /* 最大幅を30%に制限 */
-  margin-right: 20px; /* 右側に余白を作る */
+.contact-info p {
+  margin-bottom: 1.5rem;
 }
 
-
-.contact-icons {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.contact-icons img {
-  width: 32px;
-  height: 32px;
-}
-
-
-.map-container {
-  flex: 2; /* 比率2（1:2の割合で右側が2） */
-  max-width: 65%; /* 最大幅を65%に制限 */
+.contact-info .sns-icons {
+  margin-top: 2rem;
 }
 
 .map-container iframe {
   width: 100%;
-  height: 300px;
-  border: none;
-  border-radius: 8px;
-  display: block; /* インライン要素の余計な空白を削除 */
-}
-.contact-left, .map-container {
-  flex: 1;
-  max-width: 48%;
+  height: 350px;
+  border: 0;
+  border-radius: var(--radius-md);
 }
 
-
-
-
-/* フッター */
+/* --- Footer --- */
 footer {
-  margin-top: 40px;
-  padding: 20px 0;
-  background-color: #F3F0E8;
-  font-size: 0.9em;
   text-align: center;
+  padding: 3rem 0;
+  margin-top: 4rem;
+  background-color: #F1EEEA;
+  border-top: 1px solid var(--border);
 }
 
-
-
-
-
-/* レスポンシブ（スマホ用） */
-/* iPhoneサイズ以下の画面ではハンバーガーの線を細く短くする */
-@media (max-width: 480px) {
-  .logo img {
-    height: 5vh; /* モバイルでは少し小さく */
-  }
-  
-  .shop-name {
-    font-size: 1rem;
-  }
-  
-  .menu-toggle span {
-    height: 0.15rem;  /* 小さい画面では少し細く */
-    width: 1.8rem;    /* 少し短く */
-    margin-bottom: 0.3rem;
-  }
-
-
-     /* スライド幅を100%にして余白防止 */
-  .swiper-slide {
-    width: 100% !important;
-    margin: 0 auto;
-  }
-
-  /* ページネーションをカードの外に配置する */
-  .swiper {
-    padding-bottom: 0 !important; /* ドット分の余白は不要 */
-  }
-
-  .swiper-pagination {
-    position: static !important; /* absoluteやrelative解除 */
-    margin-top: 1rem;
-    text-align: center;
-  }
-
-  .swiper-container {
-    margin-bottom: 2rem; /* ページネーション分のスペース */
-  }
-  }
-
-.tea-item h3,
-.tea-description,
-.tea-ingredients {
-  word-break: keep-all;       /* 単語の途中で折り返さない（英語） */
-  overflow-wrap: break-word;  /* 長すぎたら単語ごとに折り返す */
-  white-space: normal;        /* 通常の改行に戻す */
+footer p {
+  font-size: 0.85rem;
+  color: #888;
+  font-family: var(--font-sans);
 }
 
-
-
-/* スマホ用：画面幅が768px(ipad縦)以下 */
-@media screen and (max-width: 770px) {
-
-  header {
-    position: relative;
-    height: 8vh;
-  }
-
-  /* ハンバーガー表示 */
-  .menu-toggle {
-    display: flex;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-
-  /* ナビ初期非表示 */
-  .header-container {
-    position: relative; /* ヘッダーを親要素にすることでナビゲーションの位置を超失*/
-  }
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    right: 0 ;
-    left: auto;
-    width: 180px;
-    max-width: 90vw;
-    min-width: 140px;
-    box-sizing: border-box;
-    display: none;
-    background-color: #FFF9EE;
-    padding: 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    z-index: 100;
-    flex-shrink: 0;
-    min-width: 0;
-  }
-
-html, body {
-  overflow-x: hidden;
-}
-.header-container, .right-section {
-  overflow: visible;
+footer .legal-notice {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-bottom: 1rem;
 }
 
-  .nav-links.active {
-    display: flex !important;
-    flex-direction: column;          /* ← これもここで入れておくと安心 */
+/* --- Responsive --- */
+@media (max-width: 992px) {
+  .store-concept-container, .contact-container, .product-featured {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  
-  
-  /* ハンバーガークリック後に表示されるスタイル */
-  .nav-links.active {
-    display: flex !important;
-  }
-
-  .nav-links ul,
-  .nav-links ul li,
-  .nav-links ul li a {
-    width: 100%;
-    box-sizing: border-box;
-    writing-mode: horizontal-tb !important;
-  }
-  .nav-links ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  .nav-links ul li {
-    width: 100%;
-    padding: 0.5rem 1.5rem;
-  }
-
-  .nav-links ul li a {
-    padding: 0.5rem 0;
-    display: block;
-    width: 100%;
-    font-size: 1rem;
-    text-decoration: none;
-    color: #3F3F3F;
-  }
-
-  
-  /* その他 */
-  .right-section {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .sns-icons a img {
-    height: 24px;
-    width: 24px;
-  }
-
-  .sns-icons {
-    display: flex;
-  }
-
-
-
-  body {
-    font-size: 15px;
-  }
-
-.section-title {
-    font-size: 1.25rem; /* 約20px */
-  }
-
-.section-text p,
-.store-concept-text p {
-    font-size: 0.95rem; /* 約15.2px */
-  }
-
-.tea-ingredients {
-    font-size: 0.75rem; /* 約12px */
-  }
-
-
-
-  .store-concept-container {
-    flex-direction: column; /* ← スマホでは縦並びに切り替え */
-  }
-
   .store-concept-text {
-    order: 1;
-  }
-
-  .store-concept-image {
+    justify-self: center;
+    text-align: center;
     order: 2;
   }
-
-  .store-concept-image img {
-    aspect-ratio: 4 / 3;
-    object-position: center top; /* 必要なら top にしてもOK */
+  .store-concept-image {
+    order: 1;
   }
-
-  .product-intro {
-    height: auto;
-    padding: 20px 0;
-  }
-
-
-  /* スワイパー */
-/* スマホ幅なら1枚表示 */
-  .swiper-slide {
-    width: 100% !important;  /* 横幅を画面いっぱいに */
-    margin: 0 auto !important; /* 中央寄せ */
-  }
-
-  .swiper-wrapper {
-    display: flex;
-    align-items: stretch;
-  }
-
-  .swiper {
-    padding: 0 0 2rem !important; /* ページネーション分 */
-  }
-
-  .swiper-container {
-    padding: 0;
-    margin-bottom: 3rem;
-  }
-
-  .swiper-pagination {
-    position: static !important;
-    margin-top: 1rem;
-  }
-
-  
-  
-.swiper-button-prev,
-.swiper-button-next {
-  width: 3em !important; /* 強制的に小さく */
-  height: 3em !important; /* 強制的に小さく */
-  top: 40% !important; /* 上から40%の位置に配置 */
-  margin-top: 0 !important; /* デフォルトのマージンをリセット */
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  font-size: 1em !important; /* 矢印アイコン自体も小さく */
-} 
-  .product {
-    width: 90%;
-    margin: 20px auto;
-  }
-
-  .tea-list {
-    grid-template-columns: 1fr;
-  }
-
-  .concept, .product-list, .contact {
-    padding: 30px 15px;
-  }
-
-
   .contact-container {
-    flex-direction: column;
+    padding: 2.5rem;
   }
-
-  .contact-left {
-    order: 1; /* 先に表示（テキスト） */
-    max-width: 100%;
-    margin-right: 0;
-    align-items: center;
+  .contact-info {
     text-align: center;
-    margin-bottom: 20px;
   }
-
-  .map-container {
-    order: 2; /* 後に表示（地図） */
-    max-width: 100%;
-    width: 100%;
+  .contact-info .sns-icons {
+    justify-content: center;
   }
-
-
-  .map-container iframe {
-    height: 250px;
-    width: 100%;
-  }
-  
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* PC用（768px以上）ナビ表示・ハンバーガー非表示 */
-@media screen and (min-width: 768px) {
-  .header-container {
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px; /* Mobile header height */
+  }
+  header {
+    height: 60px;
+  }
+  .logo img {
+    height: 32px;
+  }
+  .shop-name {
+    font-size: 1.1rem;
+  }
+  .global-nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg);
+    flex-direction: column;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .global-nav.is-open {
     display: flex;
-    justify-content: space-between;
+  }
+  .global-nav ul {
+    flex-direction: column;
     align-items: center;
-  }
-
-  .left-section, .center-section, .right-section {
-    display: flex;
-    align-items: center;
-  }
-
-  .center-section {
-    flex: 1;
-    justify-content: right;
-  }
-  .right-section {
-    display: flex;
-    align-items: center;
-    gap: 5rem;  /* ← ここの調整で距離を決める */
-  }
-
-  .sns-icons a img {
-    opacity: 0.8;
-    transition: opacity 0.3s;
-  }
-
-  .sns-icons a img:hover {
-    opacity: 1;
-  }
-  
-
-  /* ナビゲーション表示 */
-  .nav-links {
-    border-bottom: none;  /* ← 念のため明示しておく */  
-    display: block !important;  /* 上書きで表示強制 */
-    max-width: none;
-    width: auto;
-    background-color: transparent;
-    box-shadow: none;
-  }
-
-  .nav-links.active {
-    display: block !important;
-  }
-  
-  .nav-links a {
-    border-bottom: none;
-    text-decoration: none;
-  }
-  
-  .nav-links ul {
-    display: flex;
     gap: 1.5rem;
   }
-
-  .nav-links li {
-    border-bottom: none;
-  }
-
-  /* ハンバーガーは非表示 */
   .menu-toggle {
-    display: none;
+    display: flex;
   }
-  
+  .main-visual-text h1 {
+    font-size: 2.2rem;
+  }
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+  /* Product intro text a bit smaller on mobile for better fit */
+  #product .section-text {
+    font-size: 0.95rem;
+  }
+  .news-instagram-container,
+  .product-list-display {
+      grid-template-columns: 1fr;
+  }
+  .product-list-display li a {
+      flex-direction: column;
+      text-align: center;
+  }
+  .fullscreen-pc { display: none; }
+  .fullscreen-mobile { display: block; }
+}
+
+/* --- Tea Section Featured --- */
+.tea-section-featured {
+    margin-bottom: 4rem;
+}
+
+/* --- DESKTOP STYLES --- */
+.tea-grid-mobile {
+    display: none; /* Hidden on desktop */
+}
+
+.tea-hero-desktop {
+    display: block; /* Shown on desktop */
+}
+
+.hero-card {
+    position: relative;
+    margin: 0 auto 2rem; /* Centered, with bottom margin */
+    padding: 1.5rem; /* Creates the "trimmed" effect */
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.hero-card img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.hero-card-info {
+    position: absolute;
+    bottom: 1.5rem; /* Aligns with card padding */
+    right: 1.5rem;  /* Aligns with card padding */
+    left: 1.5rem;   /* Aligns with card padding */
+    padding: 2rem 1.5rem 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white;
+    border-radius: 0 0 4px 4px;
+    text-align: left;
+}
+
+.hero-card-info h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.hero-card-info .tea-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hero-card-info .tea-ingredients {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+    font-family: var(--font-sans);
+    margin-bottom: 1.5rem;
+}
+
+.hero-card-info .tea-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.tea-small-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* --- MOBILE STYLES --- */
+@media (max-width: 768px) {
+    .tea-hero-desktop {
+        display: none; /* Hide desktop hero */
+    }
+
+    .tea-grid-mobile {
+        display: grid; /* Show mobile grid */
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
