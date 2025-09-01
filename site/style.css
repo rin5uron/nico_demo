@@ -218,9 +218,10 @@ header {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end; /* Changed to flex-end */
   margin-bottom: 0;
   padding: 0;
+  isolation: isolate;
 }
 
 .main-visual img {
@@ -236,19 +237,21 @@ header {
 
 .main-visual-text {
   color: white;
-  text-align: center;
   text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  writing-mode: vertical-rl; /* Vertical text */
+  margin-right: 15%; /* Changed to margin-right */
+  transform: translateY(-5%); /* Fine-tuning position */
 }
 
 .main-visual-text p {
   font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  margin-left: 1rem; /* Was margin-bottom */
 }
 
 .main-visual-text h1 {
   font-size: 3rem;
   font-weight: normal;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em; /* Increased spacing for vertical */
 }
 
 /* --- Section Titles --- */
