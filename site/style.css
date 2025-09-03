@@ -311,14 +311,14 @@ header {
     align-items: start;
 }
 
-.calendar-section, .instagram-section {
+.calendar-section, .news-list-section {
     border: 1px solid var(--border);
     padding: 2rem;
     border-radius: var(--radius-md);
     background: var(--surface);
 }
 
-.calendar-section h3, .instagram-section h3 {
+.calendar-section h3, .news-list-section h3 {
     font-size: 1.2rem;
     text-align: center;
     margin-bottom: 1.5rem;
@@ -333,38 +333,26 @@ header {
     border-radius: 4px;
 }
 
-.instagram-section .instagram-media {
-    margin: 1px auto !important;
-    max-width: 100% !important;
-}
-
 .news-instagram-container {
     align-items: stretch; /* 高さを揃える */
 }
 
-.calendar-section, .instagram-section {
+.calendar-section, .news-list-section {
     display: flex;
     flex-direction: column;
 }
 
-.calendar-section img, .instagram-section .instagram-media {
+.calendar-section img {
     flex-grow: 1;
     object-fit: contain;
     max-height: 450px; /* 高さを制限 */
 }
 
 
-/* --- News List --- */
-.news-list {
-    background: var(--light-gray);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
+/* --- News List (inside News Section) --- */
 .news-list-content ul {
     list-style: none;
     padding: 0;
-    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -372,15 +360,19 @@ header {
     border-bottom: 1px solid var(--border);
 }
 
+.news-list-content li:first-child {
+    border-top: 1px solid var(--border);
+}
+
 .news-list-content li a {
     display: block;
-    padding: 1rem 0;
+    padding: 1rem;
     color: var(--text);
     transition: background-color 0.3s;
 }
 
 .news-list-content li a:hover {
-    background-color: #fff;
+    background-color: #f7f7f7;
     text-decoration: none;
 }
 
@@ -390,12 +382,26 @@ header {
 }
 
 /* --- Event Info --- */
+.event-info .swiper-slide img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+.event-info .swiper-pagination {
+    position: static;
+    margin-top: 1.5rem;
+}
+
+.event-info .swiper-pagination-bullet-active {
+    background: var(--brand-main);
+}
+
 .event-info-content {
     text-align: center;
-    padding: 3rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    background: var(--surface);
+    margin-top: 3rem;
 }
 
 /* --- Store Concept --- */
@@ -424,12 +430,6 @@ header {
 }
 
 /* --- Products --- */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-}
-
 .product-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -470,129 +470,75 @@ header {
   min-height: 54px; /* 3 lines */
 }
 
-.product-card .tea-ingredients {
-  font-size: 0.8rem;
-  color: #888;
-  margin-bottom: 1.5rem;
-  font-family: var(--font-sans);
-}
-
 .product-card .tea-price {
   font-weight: bold;
   color: var(--brand-accent);
 }
 
-.tea-grid {
-    max-width: 900px; /* 4つのカードが並ぶのに十分な幅 */
-    margin: 0 auto; /* 中央揃え */
-}
-
-
-/* --- Product Samples --- */
-.swiper-container {
-    margin: 2rem 0;
-    position: relative;
-}
-.swiper {
-    padding: 0 4rem 3rem;
-}
-.swiper-slide {
-    text-align: center;
-}
-.swiper-slide img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    margin-bottom: 1rem;
-}
-.swiper-slide h2 {
-    font-size: 1.1rem;
-    color: var(--brand-main);
-}
-.swiper-slide p {
-    font-size: 0.9rem;
-}
-.swiper-button-prev, .swiper-button-next {
-    color: var(--brand-main);
-}
-.swiper-pagination-bullet-active {
-    background: var(--brand-main);
-}
-
-.product-grid-gallery {
+/* --- New Product Section Styles --- */
+.product-hero-featured {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-.product-gallery-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    margin-bottom: 0.5rem;
-}
-.product-gallery-item p {
-    text-align: center;
-    font-weight: 600;
-    color: var(--brand-accent);
-}
-
-.product-list-display {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-.product-list-display li a {
-    display: flex;
-    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
     align-items: center;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    color: var(--text);
-    transition: box-shadow 0.3s;
-}
-.product-list-display li a:hover {
-    box-shadow: var(--shadow-soft);
-    text-decoration: none;
-}
-.product-list-display img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 4px;
+    margin-bottom: 5rem;
 }
 
-.product-featured {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 2rem;
-    align-items: center;
-    margin: 2rem 0;
-}
-.product-featured img {
-    width: 100%;
-    border-radius: var(--radius-md);
-}
-
-.product-fullscreen-gallery {
-    margin: 2rem 0;
-}
-.product-fullscreen-gallery img {
+.product-hero-image img {
     width: 100%;
     height: auto;
     border-radius: var(--radius-md);
 }
-.product-fullscreen-gallery .caption {
-    font-size: 0.8rem;
-    text-align: right;
-    color: #888;
-    margin-top: 0.5rem;
+
+.product-hero-text h3 {
+    font-size: 1.8rem;
+    color: var(--brand-main);
+    margin-bottom: 1rem;
 }
-.fullscreen-mobile { display: none; }
+
+.product-hero-text p {
+    margin-bottom: 1.5rem;
+}
+
+.product-hero-text .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--brand-accent);
+}
+
+.btn-see-more {
+    display: inline-block;
+    background-color: var(--brand-main);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-see-more:hover {
+    background-color: #3a5a4a;
+    text-decoration: none;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.tea-layout-container .tea-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tea-layout-container .tea-row-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
 
 /* --- Contact --- */
 .contact-container {
@@ -665,6 +611,10 @@ footer .legal-notice {
   .contact-info .sns-icons {
     justify-content: center;
   }
+
+  .tea-grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -722,91 +672,29 @@ footer .legal-notice {
   }
   .fullscreen-pc { display: none; }
   .fullscreen-mobile { display: block; }
+
+  /* New responsive styles */
+  .product-hero-featured {
+      grid-template-columns: 1fr;
+  }
+
+  .recommendations-grid,
+  .tea-layout-container .tea-row-3 {
+      grid-template-columns: 1fr 1fr;
+  }
+
+  .tea-layout-container .tea-row-2 {
+      grid-template-columns: 1fr;
+  }
+
+  .tea-layout-container .tea-row-2 {
+      margin-bottom: 2rem;
+  }
 }
 
-/* --- Tea Section Featured --- */
-.tea-section-featured {
-    margin-bottom: 4rem;
-}
-
-/* --- DESKTOP STYLES --- */
-.tea-grid-mobile {
-    display: none; /* Hidden on desktop */
-}
-
-.tea-hero-desktop {
-    display: block; /* Shown on desktop */
-}
-
-.hero-card {
-    position: relative;
-    margin: 0 auto 2rem; /* Centered, with bottom margin */
-    padding: 1.5rem; /* Creates the "trimmed" effect */
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-soft);
-}
-
-.hero-card img {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 4px;
-    display: block;
-}
-
-.hero-card-info {
-    position: absolute;
-    bottom: 1.5rem; /* Aligns with card padding */
-    right: 1.5rem;  /* Aligns with card padding */
-    left: 1.5rem;   /* Aligns with card padding */
-    padding: 2rem 1.5rem 1.5rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    color: white;
-    border-radius: 0 0 4px 4px;
-    text-align: left;
-}
-
-.hero-card-info h4 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: white;
-}
-
-.hero-card-info .tea-description {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.hero-card-info .tea-ingredients {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.9);
-    font-family: var(--font-sans);
-    margin-bottom: 1.5rem;
-}
-
-.hero-card-info .tea-price {
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-.tea-small-images {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-/* --- MOBILE STYLES --- */
-@media (max-width: 768px) {
-    .tea-hero-desktop {
-        display: none; /* Hide desktop hero */
-    }
-
-    .tea-grid-mobile {
-        display: grid; /* Show mobile grid */
+@media (max-width: 480px) {
+    .recommendations-grid,
+    .tea-layout-container .tea-row-3 {
         grid-template-columns: 1fr;
-        gap: 2rem;
     }
 }

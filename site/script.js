@@ -48,18 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // --- Swiper Initialization --- //
-    const swiper = new Swiper('.mySwiper', {
+    // --- Event Swiper Initialization --- //
+    const eventSwiper = new Swiper('.event-swiper', {
         loop: true,
         slidesPerView: 'auto',
         spaceBetween: 16,
+        speed: 1500, // <--- アニメーション速度を調整
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
         },
         breakpoints: {
             768: {
