@@ -658,11 +658,25 @@ footer .legal-notice {
   header {
     height: 60px;
   }
+  .logo {
+    gap: 8px; /* Adjust gap for mobile */
+  }
   .logo img {
     height: 32px;
   }
   .shop-name {
     font-size: 1.1rem;
+  }
+  .right-section {
+    gap: 1rem; /* Adjust gap for mobile */
+    /* Reverted align-items to default center */
+  }
+  .sns-icons {
+    transform: translateY(1px); /* Fine-tune vertical alignment */
+  }
+  .sns-icons a img {
+    height: 22px; /* Adjust icon size for mobile */
+    width: 22px;
   }
   .global-nav {
     display: none;
@@ -723,6 +737,13 @@ footer .legal-notice {
 
   .tea-layout-container .tea-row-2 {
       margin-bottom: 1.5rem;
+  }
+
+  /* Unify product card image heights on mobile */
+  .product-card img,
+  .tea-layout-container .product-card img,
+  .tea-layout-container .tea-row-2 .product-card img {
+    height: 200px;
   }
 }
 
