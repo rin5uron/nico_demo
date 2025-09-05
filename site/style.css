@@ -117,11 +117,14 @@ header {
 
 .logo img {
   height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .shop-name {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: normal;
   font-family: var(--font-serif);
   white-space: nowrap;
 }
@@ -164,7 +167,7 @@ header {
 .right-section {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .sns-icons {
@@ -279,7 +282,7 @@ header {
 .subsection-title {
     font-family: var(--font-serif);
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: normal;
     color: var(--brand-main);
     margin: 4rem 0 2rem;
     padding-bottom: 0.5rem;
@@ -301,6 +304,10 @@ header {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.footer-link-text {
+    margin-top: 4rem;
 }
 
 /* --- News & Instagram --- */
@@ -530,15 +537,41 @@ header {
 .tea-layout-container .tea-row-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .tea-layout-container .tea-row-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
 }
+
+/* Compact Tea Card Styles */
+.tea-layout-container .product-card {
+  padding: 1rem;
+}
+.tea-layout-container .product-card img {
+  height: 160px;
+  margin-bottom: 1rem;
+}
+
+.tea-layout-container .tea-row-2 .product-card img {
+  height: 220px;
+}
+
+.tea-layout-container .product-card h4 {
+  font-size: 1rem;
+}
+.tea-layout-container .product-card .tea-description {
+  font-size: 0.85rem;
+  min-height: 0;
+  margin-bottom: 0.5rem;
+}
+.tea-layout-container .product-card .tea-price {
+  font-size: 0.9rem;
+}
+
 
 /* --- Contact --- */
 .contact-container {
@@ -582,6 +615,11 @@ footer p {
   font-family: var(--font-sans);
 }
 
+.footer-sns-icons {
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
 footer .legal-notice {
     font-size: 0.75rem;
     color: #aaa;
@@ -610,10 +648,6 @@ footer .legal-notice {
   }
   .contact-info .sns-icons {
     justify-content: center;
-  }
-
-  .tea-grid-5 {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -688,7 +722,7 @@ footer .legal-notice {
   }
 
   .tea-layout-container .tea-row-2 {
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
   }
 }
 
