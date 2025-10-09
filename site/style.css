@@ -217,7 +217,7 @@ header {
 
 /* --- Main Visual --- */
 .main-visual {
-  height: 80vh;
+  height: 60vh;
   position: relative;
   display: flex;
   align-items: center;
