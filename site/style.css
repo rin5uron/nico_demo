@@ -458,7 +458,7 @@ header {
 
 .product-card img {
   width: 100%;
-  height: 250px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 1.5rem;
@@ -552,12 +552,12 @@ header {
   padding: 1rem;
 }
 .tea-layout-container .product-card img {
-  height: 160px;
+  aspect-ratio: 3 / 4;
   margin-bottom: 1rem;
 }
 
 .tea-layout-container .tea-row-2 .product-card img {
-  height: 220px;
+  aspect-ratio: 3 / 4;
 }
 
 .tea-layout-container .product-card h4 {
