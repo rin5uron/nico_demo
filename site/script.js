@@ -70,4 +70,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Product Swiper Initialization --- //
+    const productSwiper = new Swiper('.product-swiper', {
+        loop: true,
+        slidesPerView: 'auto',
+        spaceBetween: 16,
+        grabCursor: true,
+        centeredSlides: true,
+        speed: 1500,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 24,
+            }
+        }
+    });
+
 });

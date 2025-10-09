@@ -753,3 +753,53 @@ footer .legal-notice {
         grid-template-columns: 1fr;
     }
 }
+
+/* --- Product Slider --- */
+.product-slider-section .swiper-slide {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    aspect-ratio: 1 / 1;
+}
+
+.product-slider-section .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-slider-section .swiper-slide:hover img {
+    transform: scale(1.05);
+}
+
+.product-slider-section .slide-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    color: white;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    text-shadow: 0 1px 5px rgba(0,0,0,0.4);
+}
+
+.product-slider-section .slide-text h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.product-slider-section .slide-text p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.product-slider-section .swiper-pagination {
+    position: static;
+    margin-top: 1.5rem;
+}
+
+.product-slider-section .swiper-pagination-bullet-active {
+    background: var(--brand-main);
+}
