@@ -495,6 +495,8 @@ header {
     width: 100%;
     height: auto;
     border-radius: var(--radius-md);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
 }
 
 .product-hero-text h3 {
@@ -534,44 +536,71 @@ header {
     gap: 2rem;
 }
 
-.tea-layout-container .tea-row-2 {
+
+
+.tea-top-row, .tea-bottom-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 1rem;
 }
 
-.tea-layout-container .tea-row-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+.tea-top-row {
+    grid-template-columns: repeat(2, 1fr); /* PCで2列 */
+    margin-bottom: 1.5rem; /* 上段と下段の間隔 */
+}
+
+.tea-bottom-row {
+    grid-template-columns: repeat(3, 1fr); /* PCで3列 */
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 992px) {
+    .tea-top-row, .tea-bottom-row {
+        grid-template-columns: repeat(2, 1fr); /* 992px以下で2列 */
+    }
+}
+
+@media (max-width: 768px) {
+    .tea-top-row, .tea-bottom-row {
+        grid-template-columns: 1fr; /* 768px以下で1列 */
+    }
 }
 
 /* Compact Tea Card Styles */
 .tea-layout-container .product-card {
-  padding: 1rem;
+  padding: 0.6rem;
 }
 .tea-layout-container .product-card img {
-  aspect-ratio: 3 / 4;
-  margin-bottom: 1rem;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 0.6rem;
 }
 
 .tea-layout-container .tea-row-2 .product-card img {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
 }
 
 .tea-layout-container .product-card h4 {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .tea-layout-container .product-card .tea-description {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   min-height: 0;
   margin-bottom: 0.5rem;
 }
 .tea-layout-container .product-card .tea-price {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
+
+/* --- Tea Section Specific Styles --- */
+.tea-top-row .product-card:nth-child(1),
+.tea-top-row .product-card:nth-child(2) {
+  background-color: var(--light-gray); /* 上2つを少し明るい背景色に */
+  border: 1px solid var(--brand-accent); /* アクセントカラーのボーダーを追加 */
+}
+.tea-top-row .product-card:nth-child(1) img,
+.tea-top-row .product-card:nth-child(2) img {
+  aspect-ratio: 4 / 3; /* 上2つの画像を4:3に変更 */
+}
 
 /* --- Contact --- */
 .contact-container {
@@ -647,9 +676,15 @@ footer .legal-notice {
     text-align: center;
   }
   .contact-info .sns-icons {
-    justify-content: center;
-  }
-}
+        justify-content: center;
+      }
+      .recommendations-grid {
+        grid-template-columns: 1fr; /* 992px以下で1列 */
+      }
+      .tea-layout-container {
+        grid-template-columns: repeat(2, 1fr); /* 992px以下で2列 */
+      }
+    }
 
 @media (max-width: 768px) {
   body {
@@ -723,33 +758,23 @@ footer .legal-notice {
 
   /* New responsive styles */
   .product-hero-featured {
-      grid-template-columns: 1fr;
-  }
+          grid-template-columns: 1fr;
+      }
+      .tea-layout-container {
+        grid-template-columns: 1fr; /* 768px以下で1列 */
+      }
 
-  .recommendations-grid,
-  .tea-layout-container .tea-row-3 {
-      grid-template-columns: 1fr 1fr;
-  }
+  
 
-  .tea-layout-container .tea-row-2 {
-      grid-template-columns: 1fr;
-  }
+  
 
-  .tea-layout-container .tea-row-2 {
-      margin-bottom: 1.5rem;
-  }
+  
 
-  /* Unify product card image heights on mobile */
-  .product-card img,
-  .tea-layout-container .product-card img,
-  .tea-layout-container .tea-row-2 .product-card img {
-    height: 200px;
-  }
+  
 }
 
 @media (max-width: 480px) {
-    .recommendations-grid,
-    .tea-layout-container .tea-row-3 {
+    .recommendations-grid {
         grid-template-columns: 1fr;
     }
 }

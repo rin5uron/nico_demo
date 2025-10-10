@@ -1,4 +1,4 @@
-’’’
+'''
 nico_demo/
 ├ README.md
 ├ index.html
@@ -16,5 +16,9 @@ nico_demo/
     │   └ proposals/
     └ spec/
         └ spec.md
-        
+
 '''
+
+## デプロイ済みサイト
+
+現在の最終確認用サイト（パターンB）: https://nico-demo-git-pattern-b-rs-projects-9c94598c.vercel.app/
