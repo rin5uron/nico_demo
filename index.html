@@ -3,321 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ニコ酒店</title>
+    <title>ニコグループ</title>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="site/style.css">
+    <link rel="stylesheet" href="/Users/rin5uron/Desktop/nico_demo_pattern_b/site/style.css">
 </head>
-<body>
+<body class="portal-page">
 
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <img src="site/images/logo.jpg" alt="ニコ酒店ロゴ">
-                <span class="shop-name">ニコ酒店</span>
-            </div>
-            <div class="right-section">
-                <nav class="global-nav">
-                    <ul>
-                        <li><a href="#news-instagram">お知らせ</a></li>
-                        <li><a href="#event-info">イベント</a></li>
-                        <li><a href="#store-concept">お店について</a></li>
-                        <li><a href="#product">取扱商品</a></li>
-                        <li><a href="#contact">お問い合わせ</a></li>
-                    </ul>
-                </nav>
-                <div class="sns-icons">
-                    <a href="https://fukagawa-distillery.tokyo/shops/" target="_blank"><img src="site/images/icons/bootstrap-bag.svg" alt="Online Shop"></a>
-                    <a href="https://www.instagram.com/nicosaketen" target="_blank"><img src="site/images/icons/bootstrap-instagram.svg" alt="Instagram"></a>
-                </div>
-                <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+    <main class="portal-container">
+        <div class="portal-header">
+            <img src="/Users/rin5uron/Desktop/nico_demo_pattern_b/site/images/logo.jpg" alt="ニコグループ ロゴ" class="portal-logo">
+            <h1 class="portal-title">ニコグループ</h1>
+            <p class="portal-subtitle">食と暮らしの商店</p>
         </div>
-    </header>
 
-    <main>
-        <section class="main-visual">
-            <img src="site/images/hero.jpg" alt="薬棚の画像">
-            <div class="main-visual-text">
-                <!-- <p>お酒のセレクトショップ</p> -->
-                <h1>ニコ酒店</h1>
-            </div>
-            
-        </section>
-
-        <section class="product-slider-section">
-            <div class="container fade-in">
-                <div class="section-title">
-                    <p>PICK UP</p>
-                    <h2>おすすめ商品</h2>
+        <div class="store-selection">
+            <a href="store_curry.html" class="store-card">
+                <div class="store-image-wrapper">
+                    <img src="/Users/rin5uron/Desktop/nico_demo_pattern_b/site/top/nico_curry.jpg" alt="NICO 25 TOGO 店舗イメージ">
                 </div>
-                <div class="swiper product-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="site/images/jpeg_images/IMG_7396.jpg" alt="商品画像">
-                            <div class="slide-text">
-                                <h3>商品名サンプル</h3>
-                                <p>短い説明文のサンプルです。</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="site/images/jpeg_images/IMG_7727.jpg" alt="商品画像">
-                            <div class="slide-text">
-                                <h3>商品名サンプル</h3>
-                                <p>短い説明文のサンプルです。</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="site/images/jpeg_images/IMG_7887.jpg" alt="商品画像">
-                            <div class="slide-text">
-                                <h3>商品名サンプル</h3>
-                                <p>短い説明文のサンプルです。</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="site/images/jpeg_images/IMG_7913.jpg" alt="商品画像">
-                            <div class="slide-text">
-                                <h3>商品名サンプル</h3>
-                                <p>短い説明文のサンプルです。</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="site/images/jpeg_images/IMG_8032.jpg" alt="商品画像">
-                            <div class="slide-text">
-                                <h3>商品名サンプル</h3>
-                                <p>短い説明文のサンプルです。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
+                <div class="store-info">
+                    <h2 class="store-name">NICO 25 TOGO</h2>
+                    <p class="store-description">スパイスとハーブが織りなす、本格的な薬膳カレーとクラフトビールのお店。</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="news-instagram" id="news-instagram">
-            <div class="container fade-in">
-                <div class="section-title">
-                    <p>NEWS</p>
-                    <h2>お知らせ</h2>
+            </a>
+            <a href="store_nico.html" class="store-card">
+                <div class="store-image-wrapper">
+                    <img src="/Users/rin5uron/Desktop/nico_demo_pattern_b/site/top/nico.jpg" alt="ニコ酒店 店舗イメージ">
                 </div>
-                <div class="news-instagram-container">
-                    <div class="calendar-section">
-                        <h3>今月の営業カレンダー</h3>
-                        <img src="docs/media/notes/calendar.png" alt="営業カレンダー" loading="lazy" decoding="async">
-                    </div>
-                    <div class="news-list-section">
-                        <h3>お知らせ一覧</h3>
-                        <div class="news-list-content">
-                            <ul>
-                                <li><a href="#">2025.08.01 新商品「〇〇」入荷しました！</a></li>
-                                <li><a href="#">2025.07.25 夏季休業のお知らせ</a></li>
-                                <li><a href="#">2025.07.15 〇〇イベント開催決定！</a></li>
-                            </ul>
-                            <p class="more-link"><a href="#">一覧へ</a></p>
-                        </div>
-                    </div>
+                <div class="store-info">
+                    <h2 class="store-name">ニコ酒店</h2>
+                    <p class="store-description">国産のクラフトジンやリキュール、薬膳茶などを取り揃える、あなたの心と体に寄り添う酒店。</p>
                 </div>
-            </div>
-        </section>
-
-        
-
-        <section class="event-info" id="event-info">
-            <div class="container fade-in">
-                 <div class="section-title">
-                    <p>EVENT</p>
-                    <h2>イベント</h2>
+            </a>
+            <a href="store_bar.html" class="store-card">
+                <div class="store-image-wrapper">
+                    <img src="/Users/rin5uron/Desktop/nico_demo_pattern_b/site/top/nico_bar.jpg" alt="BAR NICo 店舗イメージ">
                 </div>
-                <div class="swiper event-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="site/images/ivent_sample.jpg" alt="イベントサンプル画像 1"></div>
-                        <div class="swiper-slide"><img src="site/images/ivent_sample.jpg" alt="イベントサンプル画像 2"></div>
-                        <div class="swiper-slide"><img src="site/images/ivent_sample.jpg" alt="イベントサンプル画像 3"></div>
-                        <div class="swiper-slide"><img src="site/images/ivent_sample.jpg" alt="イベントサンプル画像 4"></div>
-                        <div class="swiper-slide"><img src="site/images/ivent_sample.jpg" alt="イベントサンプル画像 5"></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
+                <div class="store-info">
+                    <h2 class="store-name">BAR NICo</h2>
+                    <p class="store-description">旬の食材を使った料理と、選りすぐりのお酒を楽しめる、大人のための隠れ家バル。</p>
                 </div>
-                <div class="event-info-content">
-                    <p>最新情報はInstagramをご確認ください。</p>
-                    <p class="more-link"><a href="https://www.instagram.com/nicosaketen" target="_blank">Instagramへ</a></p>
-                </div>
-            </div>
-        </section>
-
-        <section id="store-concept" class="fade-in">
-            <div class="container">
-                <div class="section-title">
-                    <p>CONCEPT</p>
-                    <h2>お店について</h2>
-                </div>
-                <div class="store-concept-container">
-                    <div class="store-concept-image">
-                        <img src="site/images/shop.jpg" alt="店舗外観の写真">
-                    </div>
-                    <div class="store-concept-text">
-                        <h3>『薬屋のような酒屋』</h3>
-                        <p>ちょっと元気が欲しいとき。ちょっとひと息入れたいとき。ふらっと寄り道したくなる酒店を心がけてます。<br>
-                        国産のクラフトジン・リキュールを中心に販売/角打ちを行っており、<br>
-                        薬膳を得意とする薬剤師の番頭謹製の漬け込み酒や薬膳茶のご用意もありますので、今のあなたにピッタリな茶/酒を見繕います。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="product">
-            <div class="container">
-                <div class="section-title">
-                    <p>PRODUCTS</p>
-                    <h2>取扱商品</h2>
-                </div>
-
-                <div class="section-text">
-                    <p>季節や入荷状況によって随時商品は入れ替わります。</p>
-                    <p>手拭いラッピング承ります、ご相談ください。<br>（商品によってはお受けできないものもあります。）</p>
-                    <p><a href="https://fukagawa-distillery.tokyo/shops/" target="_blank">オンラインショップはこちら</a></p>
-                </div>
-
-                <!-- Featured Product -->
-                <h3 class="subsection-title">今月の新商品</h3>
-                <div class="product-hero-featured">
-                    <div class="product-hero-image">
-                        <img src="site/images/product5.jpg" alt="今月のイチオシ商品">
-                    </div>
-                    
-                    <div class="product-hero-text">
-                        <h3>商品名：〇〇</h3>
-                        <p>ここに商品の説明文が入ります。特別な製法で作られた逸品です。口に含むと広がる豊かな香りと、なめらかな口当たりが特徴。限定生産のため、お早めにお求めください。</p>
-                        <p class="price">¥3,000 <span class="tax">（税込）</span></p>
-                        <a href="#" class="btn-see-more">詳しく見る</a>
-                    </div>
-                </div>
-
-                <h3 class="subsection-title">季節のおすすめ</h3>
-                
-                <!-- Recommendations Grid -->
-                <div class="recommendations-grid">
-                    <div class="product-card">
-                        <a href="#">
-                            <img src="site/images/product1.jpg" alt="おすすめ商品1">
-                            <h4>商品名A</h4>
-                            <p class="tea-description">伝統的な製法で醸造された、深い味わいの日本酒です。</p>
-                            <p class="tea-price">¥1,800 <span class="tax">（税込）</span></p>
-                        </a>
-                    </div>
-                    <div class="product-card">
-                        <a href="#">
-                            <img src="site/images/product2.jpg" alt="おすすめ商品2">
-                            <h4>商品名B</h4>
-                            <p class="tea-description">フルーティーな香りが特徴の、飲みやすいワインです。</p>
-                            <p class="tea-price">¥2,200 <span class="tax">（税込）</span></p>
-                        </a>
-                    </div>
-                    <div class="product-card">
-                        <a href="#">
-                            <img src="site/images/product3.jpg" alt="おすすめ商品3">
-                            <h4>商品名C</h4>
-                            <p class="tea-description">爽やかな口当たりの、季節限定ビールです。</p>
-                            <p class="tea-price">¥800 <span class="tax">（税込）</span></p>
-                        </a>
-                    </div>
-                </div>
-
-                <h3 class="subsection-title">色物薬膳茶</h3>
-                <div class="tea-layout-container">
-                    <div class="tea-top-row">
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="site/images/001secchu.jpg" alt="001 折衷 - Secchu">
-                                <h4>001 折衷 - Secchu <span class="tea-tag">常時販売</span></h4>
-                                <p class="tea-description">日々のバランスを整える、クセのない優しい味わい</p>
-                                <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
-                            </a>
-                        </div>
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="site/images/001secchu.jpg" alt="001 折衷 - Secchu">
-                                <h4>001 折衷 - Secchu <span class="tea-tag">現在販売中</span></h4>
-                                <p class="tea-description">日々のバランスを整える、クセのない優しい味わい</p>
-                                <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="tea-bottom-row">
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="site/images/002ryokuin.jpg" alt="002 緑蔭 - Ryokuin">
-                                <h4>002 緑蔭 - Ryokuin</h4>
-                                <p class="tea-description">清涼感たっぷり、夏の暑さを和らげる</p>
-                                <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
-                            </a>
-                        </div>
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="site/images/003anka.jpg" alt="003 行火 - Anka">
-                                <h4>003 行火 - Anka</h4>
-                                <p class="tea-description">スパイスの香りで体を芯から温めるチャイブレンド</p>
-                                <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
-                            </a>
-                        </div>
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="site/images/004kusamoe.jpg" alt="004 草萌 - Kusamoe">
-                                <h4>004 草萌 - Kusamoe</h4>
-                                <p class="tea-description">春の高ぶるエネルギーを整える、爽やかなブレンド</p>
-                                <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="section-text footer-link-text">
-                    <p>この他の商品はオンラインショップでもお求めいただけます。</p>
-                    <p><a href="https://fukagawa-distillery.tokyo/shops/" target="_blank">オンラインショップはこちら</a></p>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="contact" class="fade-in">
-            <div class="container">
-                <div class="section-title">
-                    <p>CONTACT</p>
-                    <h2>お問い合わせ</h2>
-                </div>
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <p>お問い合わせは店舗またはInstagramのDMまで。</p>
-                        <p>ニコ酒店<br>東京都江東区高橋11-1 1F</p>
-                        <div class="sns-icons">
-                            <a href="https://www.instagram.com/nicosaketen" target="_blank"><img src="site/images/icons/instagram-light.svg" alt="Instagram"></a>
-                        </div>
-                    </div>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.6818165654877!2d139.7961031759287!3d35.6848358725861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188900618ae02b%3A0xc4d716f6038010f0!2zTklDT-mFkuW6lw!5e0!3m2!1sja!2sus!4v1746235224649!5m2!1sja!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </a>
+        </div>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="sns-icons footer-sns-icons">
-                <a href="https://fukagawa-distillery.tokyo/shops/" target="_blank"><img src="site/images/icons/bootstrap-bag.svg" alt="Online Shop"></a>
-                <a href="https://www.instagram.com/nicosaketen" target="_blank"><img src="site/images/icons/bootstrap-instagram.svg" alt="Instagram"></a>
-            </div>
-            <p class="legal-notice">飲酒は20歳になってから。20歳未満のお客様への酒類の販売は固くお断りしております。</p>
-            <p>&copy; 2025 ニコ酒店</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- <script async src="//www.instagram.com/embed.js"></script> -->
-    <script src="site/script.js"></script>
 </body>
 </html>

@@ -54,13 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 'auto',
         spaceBetween: 16,
         speed: 1500, // <--- アニメーション速度を調整
+        grabCursor: true,
         autoplay: {
             delay: 3000,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
         },
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
         breakpoints: {
             768: {
@@ -80,11 +85,15 @@ document.addEventListener('DOMContentLoaded', () => {
         speed: 1500,
         autoplay: {
             delay: 3500,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
         },
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
         breakpoints: {
             768: {

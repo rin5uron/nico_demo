@@ -828,3 +828,200 @@ footer .legal-notice {
 .product-slider-section .swiper-pagination-bullet-active {
     background: var(--brand-main);
 }
+
+/* --- Tea Tag --- */
+.tea-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background-color: var(--brand-accent);
+    color: white;
+    font-family: var(--font-sans);
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+/* --- Swiper --- */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--brand-main);
+}
+
+/* --- Mobile Nav --- */
+.global-nav {
+    /* ... existing styles ... */
+    transform: translateY(-100%);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.5s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.global-nav.is-open {
+    /* ... existing styles ... */
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- Body Scroll Lock --- */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* --- Simple Page (No Header) --- */
+body.simple-page {
+    padding-top: 0;
+}
+
+/* --- Portal Page --- */
+.portal-page {
+  padding-top: 0; /* Override store page padding */
+  background-color: var(--bg);
+}
+
+.portal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.portal-header {
+  margin-bottom: 4rem;
+}
+
+.portal-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+}
+
+.portal-title {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--brand-main);
+  font-weight: normal;
+  letter-spacing: 0.1em;
+}
+
+.portal-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text);
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+.store-selection {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.store-card {
+  flex: 1 1 300px;
+  max-width: 340px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--text);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.store-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+}
+
+.store-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.store-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.store-card:hover img {
+  transform: scale(1.05);
+}
+
+.store-info {
+  padding: 1.5rem;
+}
+
+.store-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: var(--brand-main);
+  margin-bottom: 0.75rem;
+}
+
+.store-description {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  min-height: 75px;
+}
+
+@media (max-width: 992px) {
+  .store-selection {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .store-card {
+    max-width: 450px;
+    width: 100%;
+  }
+}
+
+/* --- Swiper Navigation Arrows --- */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #3d3d3d; /* Match --text color */
+}
