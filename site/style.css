@@ -22,8 +22,8 @@ html, body {
   font-family: var(--font-serif);
   background-color: var(--bg);
   color: var(--text);
-  line-height: 1.8;
-  font-size: 16px;
+  line-height: 1.7;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -31,7 +31,7 @@ html, body {
 }
 
 body {
-  padding-top: 80px; /* Header height */
+  padding-top: 70px; /* Header height */
 }
 
 a {
@@ -51,14 +51,14 @@ a:hover {
 }
 
 main section {
-  padding-block: 6rem;
+  padding-block: 4rem;
   /* 固定ヘッダー分のアンカー位置補正（表示内容は変えず、スクロール位置のみ調整） */
-  scroll-margin-top: 90px;
+  scroll-margin-top: 80px;
 }
 
 @media (max-width: 768px) {
   main section {
-    padding-block: 4rem;
+    padding-block: 3rem;
     scroll-margin-top: 70px;
   }
 }
@@ -89,7 +89,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: 70px;
   background-color: rgba(249, 248, 246, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -115,14 +115,14 @@ header {
 }
 
 .logo img {
-  height: 40px;
-  width: 40px;
+  height: 36px;
+  width: 36px;
   object-fit: cover;
   border-radius: 50%;
 }
 
 .shop-name {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: normal;
   font-family: var(--font-serif);
   white-space: nowrap;
@@ -259,11 +259,11 @@ header {
 /* --- Section Titles --- */
 .section-title {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .section-title h2 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: normal;
   color: var(--brand-main);
   letter-spacing: 0.1em;
@@ -271,7 +271,7 @@ header {
 }
 
 .section-title p {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: var(--brand-accent);
   font-family: var(--font-sans);
   text-transform: uppercase;
@@ -313,21 +313,28 @@ header {
 .news-instagram-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2rem;
     align-items: start;
+}
+
+/* Single column center layout for news-only pages */
+.news-instagram-container:has(.news-list-section:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .calendar-section, .news-list-section {
     border: 1px solid var(--border);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: var(--radius-md);
     background: var(--surface);
 }
 
 .calendar-section h3, .news-list-section h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     color: var(--text);
     font-weight: 500;
     opacity: 0.7;
@@ -414,7 +421,7 @@ header {
 .store-concept-container {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
+  gap: 2.5rem;
   align-items: center;
 }
 
@@ -441,18 +448,19 @@ header {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   text-align: center;
-  padding: 1.5rem;
+  padding: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-soft);
 }
 
 .product-card a {
   text-decoration: none;
   color: inherit;
+  display: block;
 }
 
 .product-card img {
@@ -460,58 +468,78 @@ header {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 4px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
 }
 
 .product-card h4 {
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   color: var(--brand-main);
+  line-height: 1.4;
 }
 
 .product-card .tea-description {
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  min-height: 54px; /* 3 lines */
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  min-height: 40px;
+  line-height: 1.5;
 }
 
 .product-card .tea-price {
   font-weight: bold;
   color: var(--brand-accent);
+  font-size: 0.85rem;
 }
 
-/* --- New Product Section Styles --- */
-.product-hero-featured {
+/* --- Featured Products Grid --- */
+.featured-products-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    margin-bottom: 5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
 }
 
-.product-hero-image img {
-    width: 100%;
-    height: auto;
+.featured-product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+}
+
+.featured-product-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.featured-product-card img {
+    width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
 }
 
-.product-hero-text h3 {
-    font-size: 1.8rem;
+.featured-product-info {
+    padding: 1.2rem;
+}
+
+.featured-product-info h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--brand-main);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-.product-hero-text p {
-    margin-bottom: 1.5rem;
-}
-
-.product-hero-text .price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--brand-accent);
+.featured-product-info p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text);
 }
 
 .btn-see-more {
@@ -531,74 +559,52 @@ header {
 
 .recommendations-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
 }
 
 
 
-.tea-top-row, .tea-bottom-row {
+/* Tea Grid - 5 columns */
+.tea-grid-five {
     display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
-}
-
-.tea-top-row {
-    grid-template-columns: repeat(2, 1fr); /* PCで2列 */
-    margin-bottom: 1.5rem; /* 上段と下段の間隔 */
-}
-
-.tea-bottom-row {
-    grid-template-columns: repeat(3, 1fr); /* PCで3列 */
 }
 
 /* レスポンシブ調整 */
 @media (max-width: 992px) {
-    .tea-top-row, .tea-bottom-row {
-        grid-template-columns: repeat(2, 1fr); /* 992px以下で2列 */
+    .tea-grid-five {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* 5つ目を中央配置 */
+    .tea-grid-five .product-card:nth-child(5) {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        margin: 0 auto;
     }
 }
 
-@media (max-width: 768px) {
-    .tea-top-row, .tea-bottom-row {
-        grid-template-columns: 1fr; /* 768px以下で1列 */
-    }
+/* Tea Grid Specific Styles */
+.tea-grid-five .product-card {
+  padding: 0.8rem;
 }
 
-/* Compact Tea Card Styles */
-.tea-layout-container .product-card {
-  padding: 0.6rem;
-}
-.tea-layout-container .product-card img {
+.tea-grid-five .product-card img {
   aspect-ratio: 1 / 1;
   margin-bottom: 0.6rem;
 }
 
-.tea-layout-container .tea-row-2 .product-card img {
-  aspect-ratio: 1 / 1;
+.tea-grid-five .product-card h4 {
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
 }
 
-.tea-layout-container .product-card h4 {
-  font-size: 0.9rem;
-}
-.tea-layout-container .product-card .tea-description {
+.tea-grid-five .product-card .tea-description {
   font-size: 0.75rem;
   min-height: 0;
-  margin-bottom: 0.5rem;
-}
-.tea-layout-container .product-card .tea-price {
-  font-size: 0.8rem;
-}
-
-
-/* --- Tea Section Specific Styles --- */
-.tea-top-row .product-card:nth-child(1),
-.tea-top-row .product-card:nth-child(2) {
-  background-color: var(--light-gray); /* 上2つを少し明るい背景色に */
-  border: 1px solid var(--brand-accent); /* アクセントカラーのボーダーを追加 */
-}
-.tea-top-row .product-card:nth-child(1) img,
-.tea-top-row .product-card:nth-child(2) img {
-  aspect-ratio: 4 / 3; /* 上2つの画像を4:3に変更 */
+  margin-bottom: 0;
+  line-height: 1.5;
 }
 
 /* --- Contact --- */
@@ -678,7 +684,7 @@ footer .legal-notice {
         justify-content: center;
       }
       .recommendations-grid {
-        grid-template-columns: 1fr; /* 992px以下で1列 */
+        grid-template-columns: repeat(2, 1fr); /* 992px以下で2列 */
       }
       .tea-layout-container {
         grid-template-columns: repeat(2, 1fr); /* 992px以下で2列 */
@@ -756,8 +762,9 @@ footer .legal-notice {
   .fullscreen-mobile { display: block; }
 
   /* New responsive styles */
-  .product-hero-featured {
+  .featured-products-grid {
           grid-template-columns: 1fr;
+          gap: 1.5rem;
       }
       .tea-layout-container {
         grid-template-columns: 1fr; /* 768px以下で1列 */
@@ -774,7 +781,7 @@ footer .legal-notice {
 
 @media (max-width: 480px) {
     .recommendations-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -895,9 +902,69 @@ body.no-scroll {
     overflow: hidden;
 }
 
-/* --- Simple Page (No Header) --- */
+/* --- Simple Page --- */
 body.simple-page {
-    padding-top: 0;
+    padding-top: 60px;
+}
+
+/* --- Minimal Header for Simple Pages --- */
+.minimal-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(249, 248, 246, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+.minimal-header-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding: 0 5%;
+}
+
+.minimal-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.home-link {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--text);
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    font-weight: 500;
+}
+
+.home-link:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+.instagram-link {
+    display: flex;
+    align-items: center;
+}
+
+.instagram-link img {
+    height: 24px;
+    width: 24px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-link:hover img {
+    opacity: 1;
 }
 
 /* --- Portal Page --- */
@@ -912,24 +979,24 @@ body.simple-page {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   text-align: center;
 }
 
 .portal-header {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .portal-logo {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin: 0 auto 1rem;
 }
 
 .portal-title {
   font-family: var(--font-serif);
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--brand-main);
   font-weight: normal;
   letter-spacing: 0.1em;
@@ -937,24 +1004,21 @@ body.simple-page {
 
 .portal-subtitle {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text);
   opacity: 0.8;
   margin-top: 0.5rem;
 }
 
 .store-selection {
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
 .store-card {
-  flex: 1 1 300px;
-  max-width: 340px;
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -963,60 +1027,170 @@ body.simple-page {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .store-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-soft);
-  text-decoration: none;
 }
 
 .store-image-wrapper {
+  display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
+  text-decoration: none;
 }
 
-.store-card img {
+.store-image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
 
-.store-card:hover img {
+.store-image-wrapper:hover img {
   transform: scale(1.05);
 }
 
 .store-info {
-  padding: 1.5rem;
+  padding: 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .store-name {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: normal;
   color: var(--brand-main);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .store-description {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
-  line-height: 1.7;
-  min-height: 75px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  min-height: 60px;
+  flex: 1;
+}
+
+.store-instagram-icon {
+  display: inline-block;
+  margin-top: 0.8rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.store-instagram-icon:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.store-instagram-icon img {
+  width: 24px;
+  height: 24px;
 }
 
 @media (max-width: 992px) {
   .store-selection {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
-  .store-card {
-    max-width: 450px;
+  /* 3つ目のカードを中央配置 */
+  .store-selection .store-card:nth-child(3) {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .store-selection {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  /* スマホでは中央配置を解除 */
+  .store-selection .store-card:nth-child(3) {
+    grid-column: auto;
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+/* --- Gallery Grid --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+
+.gallery-item img {
     width: 100%;
-  }
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.gallery-overlay p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .gallery-overlay h3 {
+        font-size: 0.8rem;
+    }
+    
+    .gallery-overlay p {
+        font-size: 0.7rem;
+    }
 }
 
 /* --- Swiper Navigation Arrows --- */

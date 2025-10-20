@@ -8,33 +8,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="site/style.css">
 </head>
-<body>
+<body class="simple-page">
 
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <img src="site/images/logo.jpg" alt="ニコ酒店ロゴ">
-                <span class="shop-name">ニコ酒店</span>
-            </div>
-            <div class="right-section">
-                <nav class="global-nav">
-                    <ul>
-                        <li><a href="#news-instagram">お知らせ</a></li>
-                        <li><a href="#event-info">イベント</a></li>
-                        <li><a href="#store-concept">お店について</a></li>
-                        <li><a href="#product">取扱商品</a></li>
-                        <li><a href="#contact">お問い合わせ</a></li>
-                    </ul>
-                </nav>
-                <div class="sns-icons">
-                    <a href="https://fukagawa-distillery.tokyo/shops/" target="_blank"><img src="site/images/icons/bootstrap-bag.svg" alt="Online Shop"></a>
-                    <a href="https://www.instagram.com/nicosaketen" target="_blank"><img src="site/images/icons/bootstrap-instagram.svg" alt="Instagram"></a>
-                </div>
-                <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+    <header class="minimal-header">
+        <div class="minimal-header-container">
+            <div class="minimal-nav">
+                <a href="index.html" class="home-link">HOME</a>
+                <a href="https://fukagawa-distillery.tokyo/shops/" target="_blank" class="instagram-link" aria-label="Online Shop">
+                    <img src="site/images/icons/bootstrap-bag.svg" alt="Online Shop">
+                </a>
+                <a href="https://www.instagram.com/nicosaketen" target="_blank" class="instagram-link" aria-label="Instagram">
+                    <img src="site/images/icons/bootstrap-instagram.svg" alt="Instagram">
+                </a>
             </div>
         </div>
     </header>
@@ -119,7 +104,7 @@
                                 <li><a href="#">2025.07.25 夏季休業のお知らせ</a></li>
                                 <li><a href="#">2025.07.15 〇〇イベント開催決定！</a></li>
                             </ul>
-                            <p class="more-link"><a href="#">一覧へ</a></p>
+                            <p class="more-link"><a href="https://www.instagram.com/nicosaketen" target="_blank">過去のお知らせはInstagramへ</a></p>
                         </div>
                     </div>
                 </div>
@@ -186,23 +171,31 @@
                     <p><a href="https://fukagawa-distillery.tokyo/shops/" target="_blank">オンラインショップはこちら</a></p>
                 </div>
 
-                <!-- Featured Product -->
+                <!-- Featured Products -->
                 <h3 class="subsection-title">今月の新商品</h3>
-                <div class="product-hero-featured">
-                    <div class="product-hero-image">
-                        <img src="site/images/product5.jpg" alt="今月のイチオシ商品">
+                <div class="featured-products-grid">
+                    <div class="featured-product-card">
+                        <a href="#">
+                            <img src="site/images/product5.jpg" alt="ヤソjin">
+                            <div class="featured-product-info">
+                                <h4>ヤソjin</h4>
+                                <p>赤西仁監修。限定ボトル！</p>
+                            </div>
+                        </a>
                     </div>
-                    
-                    <div class="product-hero-text">
-                        <h3>ヤソjin</h3>
-                        <p>赤西仁監修。限定ボトル！</p>
-                        <p class="price">¥3,000 <span class="tax">（税込）</span></p>
-                        <a href="#" class="btn-see-more">詳しく見る</a>
+                    <div class="featured-product-card">
+                        <a href="#">
+                            <img src="site/images/product1.jpg" alt="新商品2">
+                            <div class="featured-product-info">
+                                <h4>Japanese sweet vermouth AKA-ONI</h4>
+                                <p>日本の酒で造るベルモット（薬草酒）</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
                 <h3 class="subsection-title">季節のおすすめ</h3>
-                
+
                 <!-- Recommendations Grid -->
                 <div class="recommendations-grid">
                     <div class="product-card">
@@ -210,7 +203,6 @@
                             <img src="site/images/product1.jpg" alt="Japanese sweet vermouth AKA-ONI">
                             <h4>Japanese sweet vermouth AKA-ONI</h4>
                             <p class="tea-description">日本の酒で造るベルモット（薬草酒）</p>
-                            <p class="tea-price">¥1,800 <span class="tax">（税込）</span></p>
                         </a>
                     </div>
                     <div class="product-card">
@@ -218,7 +210,6 @@
                             <img src="site/images/product2.jpg" alt="樽熟成 ONI no amaro KZ">
                             <h4>樽熟成 ONI no amaro KZ</h4>
                             <p class="tea-description">香り良し！甘み良し！苦味よし！</p>
-                            <p class="tea-price">¥2,200 <span class="tax">（税込）</span></p>
                         </a>
                     </div>
                     <div class="product-card">
@@ -226,56 +217,50 @@
                             <img src="site/images/product3.jpg" alt="Geekstill アブサン">
                             <h4>Geekstill アブサン</h4>
                             <p class="tea-description">惡の華は緑の妖精の傍らに</p>
-                            <p class="tea-price">¥800 <span class="tax">（税込）</span></p>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <a href="#">
+                            <img src="site/images/product5.jpg" alt="ホロン オリジナル">
+                            <h4>ホロン オリジナル</h4>
+                            <p class="tea-description">その優しきジンは心を整える</p>
                         </a>
                     </div>
                 </div>
 
+                <div class="section-text">
+                    <p><a href="https://fukagawa-distillery.tokyo/shops/" target="_blank">季節商品の詳細はオンラインショップでご確認ください</a></p>
+                </div>
+
                 <h3 class="subsection-title">色物薬膳茶</h3>
-                <div class="tea-layout-container">
-                    <div class="tea-top-row">
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="site/images/001secchu.jpg" alt="001 折衷 - Secchu">
-                                <h4>001 折衷 - Secchu <span class="tea-tag">常時販売</span></h4>
-                                <p class="tea-description">補い、巡らせて、護る</p>
-                                <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
-                            </a>
-                        </div>
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="site/images/001secchu.jpg" alt="001 折衷 - Secchu">
-                                <h4>001 折衷 - Secchu <span class="tea-tag">現在販売中</span></h4>
-                                <p class="tea-description">補い、巡らせて、護る</p>
-                                <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
-                            </a>
-                        </div>
+                <div class="recommendations-grid">
+                    <div class="product-card">
+                        <a href="#">
+                            <img src="site/images/001secchu.jpg" alt="001 折衷 - Secchu">
+                            <h4>001 折衷 - Secchu</h4>
+                            <p class="tea-description">補い、巡らせて、護る</p>
+                        </a>
                     </div>
-                    <div class="tea-bottom-row">
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="site/images/002ryokuin.jpg" alt="002 緑蔭 - Ryokuin">
-                                <h4>002 緑蔭 - Ryokuin</h4>
-                                <p class="tea-description">涼み、乾かす</p>
-                                <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
-                            </a>
-                        </div>
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="site/images/003anka.jpg" alt="003 行火 - Anka">
-                                <h4>003 行火 - Anka</h4>
-                                <p class="tea-description">温め、巡らせる</p>
-                                <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
-                            </a>
-                        </div>
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="site/images/004kusamoe.jpg" alt="004 草萌 - Kusamoe">
-                                <h4>004 草萌 - Kusamoe</h4>
-                                <p class="tea-description">抑え、整える</p>
-                                <p class="tea-price">¥750 <span class="tax">（税込）</span></p>
-                            </a>
-                        </div>
+                    <div class="product-card">
+                        <a href="#">
+                            <img src="site/images/002ryokuin.jpg" alt="002 緑蔭 - Ryokuin">
+                            <h4>002 緑蔭 - Ryokuin</h4>
+                            <p class="tea-description">涼み、乾かす</p>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <a href="#">
+                            <img src="site/images/003anka.jpg" alt="003 行火 - Anka">
+                            <h4>003 行火 - Anka</h4>
+                            <p class="tea-description">温め、巡らせる</p>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <a href="#">
+                            <img src="site/images/004kusamoe.jpg" alt="004 草萌 - Kusamoe">
+                            <h4>004 草萌 - Kusamoe</h4>
+                            <p class="tea-description">抑え、整える</p>
+                        </a>
                     </div>
                 </div>
 
