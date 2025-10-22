@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         grabCursor: true,
         autoplay: {
             delay: 3000,
-            disableOnInteraction: true,
+            disableOnInteraction: false,
         },
         pagination: {
             el: '.swiper-pagination',
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         speed: 1500,
         autoplay: {
             delay: 3500,
-            disableOnInteraction: true,
+            disableOnInteraction: false,
         },
         pagination: {
             el: '.swiper-pagination',
