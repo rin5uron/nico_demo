@@ -61,6 +61,11 @@ main section {
     padding-block: 3rem;
     scroll-margin-top: 70px;
   }
+
+  /* モバイルで改行用のクラス */
+  .brmobile {
+    display: block;
+  }
 }
 
 /* --- Animations --- */
@@ -871,6 +876,10 @@ footer .legal-notice {
         color: var(--text);
         text-shadow: none;
         padding: 1rem 0.5rem;
+        min-height: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 
     .product-slider-section .slide-text h3 {
@@ -1415,12 +1424,6 @@ body.simple-page {
 @media (max-width: 768px) {
     .swiper-button-next,
     .swiper-button-prev {
-        width: 30px;
-        height: 30px;
-    }
-
-    .swiper-button-next:after,
-    .swiper-button-prev:after {
-        font-size: 16px;
+        display: none;
     }
 }
