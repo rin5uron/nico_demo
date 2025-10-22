@@ -980,8 +980,151 @@ body.simple-page {
 .instagram-link img {
     height: 24px;
     width: 24px;
+}
+
+/* --- PC Navigation --- */
+.pc-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.pc-nav a {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--text);
     opacity: 0.7;
     transition: opacity 0.3s ease;
+    font-weight: 500;
+}
+
+.pc-nav a:hover {
+    opacity: 1;
+}
+
+/* --- Header Icons Group --- */
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* --- Hamburger Menu Button --- */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.is-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.is-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- Mobile Menu Overlay --- */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.is-open {
+    display: block;
+    opacity: 1;
+}
+
+/* --- Mobile Navigation --- */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 60px;
+    right: -300px;
+    width: 280px;
+    height: calc(100vh - 60px);
+    background-color: var(--surface);
+    z-index: 999;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav.is-open {
+    right: 0;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 2rem 1.5rem;
+    margin: 0;
+}
+
+.mobile-nav li {
+    margin-bottom: 1.5rem;
+}
+
+.mobile-nav a {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+    padding: 0.5rem 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-nav a:hover {
+    opacity: 0.7;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+    .pc-nav {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    .header-icons {
+        gap: 0.75rem;
+    }
+
+    .instagram-link img {
+        height: 20px;
+        width: 20px;
+    }
 }
 
 .instagram-link:hover img {

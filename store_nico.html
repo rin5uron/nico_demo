@@ -14,15 +14,40 @@
         <div class="minimal-header-container">
             <div class="minimal-nav">
                 <a href="index.html" class="home-link">HOME</a>
-                <a href="https://fukagawa-distillery.tokyo/shops/" target="_blank" class="instagram-link" aria-label="Online Shop">
-                    <img src="site/images/icons/bootstrap-bag.svg" alt="Online Shop">
-                </a>
-                <a href="https://www.instagram.com/nicosaketen" target="_blank" class="instagram-link" aria-label="Instagram">
-                    <img src="site/images/icons/bootstrap-instagram.svg" alt="Instagram">
-                </a>
+                <!-- PC Navigation -->
+                <nav class="pc-nav">
+                    <a href="#news-instagram">お知らせ</a>
+                    <a href="#store-concept">お店について</a>
+                    <a href="#product">取扱商品</a>
+                    <a href="#contact">お問い合わせ</a>
+                </nav>
+                <div class="header-icons">
+                    <a href="https://fukagawa-distillery.tokyo/shops/" target="_blank" class="instagram-link" aria-label="Online Shop">
+                        <img src="site/images/icons/bootstrap-bag.svg" alt="Online Shop">
+                    </a>
+                    <a href="https://www.instagram.com/nicosaketen" target="_blank" class="instagram-link" aria-label="Instagram">
+                        <img src="site/images/icons/bootstrap-instagram.svg" alt="Instagram">
+                    </a>
+                    <button class="hamburger-menu" aria-label="メニューを開く" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay"></div>
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="#news-instagram">お知らせ</a></li>
+            <li><a href="#store-concept">お店について</a></li>
+            <li><a href="#product">取扱商品</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+    </nav>
 
     <main>
         <section class="main-visual">
