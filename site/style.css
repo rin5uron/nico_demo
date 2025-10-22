@@ -492,54 +492,52 @@ header {
   font-size: 0.85rem;
 }
 
-/* --- Featured Products Grid --- */
-.featured-products-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-bottom: 4rem;
+/* --- Featured Products Container (2カラム) --- */
+.featured-product-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 4rem;
 }
 
-.featured-product-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.featured-product-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
 }
 
-.featured-product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-soft);
+.featured-product-text {
+  max-width: 450px;
+  justify-self: end;
 }
 
-.featured-product-card a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+.featured-product-text h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--brand-main);
 }
 
-.featured-product-card img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+.featured-product-text p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
 }
 
-.featured-product-info {
-    padding: 1.2rem;
+.product-button {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--brand-main);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: background 0.3s ease;
+  margin-top: 1rem;
 }
 
-.featured-product-info h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--brand-main);
-    margin-bottom: 0.5rem;
-}
-
-.featured-product-info p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: var(--text);
+.product-button:hover {
+  background: var(--brand-accent);
 }
 
 .btn-see-more {
@@ -560,6 +558,13 @@ header {
 .recommendations-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Tea Gallery - 5 columns */
+.tea-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
 }
 
@@ -686,6 +691,9 @@ footer .legal-notice {
       .recommendations-grid {
         grid-template-columns: repeat(2, 1fr); /* 992px以下で2列 */
       }
+      .tea-gallery-grid {
+        grid-template-columns: repeat(3, 1fr); /* 992px以下で3列 */
+      }
       .tea-layout-container {
         grid-template-columns: repeat(2, 1fr); /* 992px以下で2列 */
       }
@@ -762,10 +770,20 @@ footer .legal-notice {
   .fullscreen-mobile { display: block; }
 
   /* New responsive styles */
-  .featured-products-grid {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-      }
+  .featured-product-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .featured-product-text {
+    justify-self: center;
+    text-align: center;
+    order: 2;
+  }
+
+  .featured-product-image {
+    order: 1;
+  }
       .tea-layout-container {
         grid-template-columns: 1fr; /* 768px以下で1列 */
       }
@@ -782,6 +800,9 @@ footer .legal-notice {
 @media (max-width: 480px) {
     .recommendations-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .tea-gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 480px以下で2列 */
     }
 }
 

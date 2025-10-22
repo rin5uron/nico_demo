@@ -51,9 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Event Swiper Initialization --- //
     const eventSwiper = new Swiper('.event-swiper', {
         loop: true,
-        slidesPerView: 'auto',
+        slidesPerView: 2,
         spaceBetween: 16,
-        speed: 1500, // <--- アニメーション速度を調整
+        speed: 1500,
         grabCursor: true,
         autoplay: {
             delay: 3000,
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         breakpoints: {
             768: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 24,
             }
         }
@@ -78,10 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Product Swiper Initialization --- //
     const productSwiper = new Swiper('.product-swiper', {
         loop: true,
-        slidesPerView: 'auto',
+        slidesPerView: 2,
         spaceBetween: 16,
         grabCursor: true,
-        centeredSlides: true,
         speed: 1500,
         autoplay: {
             delay: 3500,
@@ -97,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         breakpoints: {
             768: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 24,
             }
         }

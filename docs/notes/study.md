@@ -2,6 +2,8 @@
 
 ## 📋 目次
 
+[20251022_リモートブランチの直接操作](#20251022_リモートブランチの直接操作)
+
 [20251009_Git Worktreeのマージと整理](#20251009_git-worktreeのマージと整理)
 
 [20250115_VercelのworktreeブランチURL発行について](#20250115_vercelのworktreeブランチurl発行について)
@@ -13,6 +15,92 @@
 [20251014_worktreeの活用](#20251014_worktreeの活用)
 
 [20250731_ディレクトリ構造について](#20250731_ディレクトリ構造について)
+
+---
+
+# 20251022_リモートブランチの直接操作
+
+## 💡 Git Worktreeとリモートブランチの直接操作
+
+### Git Worktreeとは
+
+通常のgitは1つのディレクトリで1つのブランチしか扱えないが、**worktree**を使うと、1つのリポジトリで複数のディレクトリを使い、それぞれ異なるブランチで同時に作業できる。
+
+#### 例
+```
+/Users/rin5uron/Desktop/nico_demo            → main ブランチ
+/Users/rin5uron/Desktop/nico_demo_pattern_b  → pattern-b ブランチ
+```
+
+**重要:** この場合、`nico_demo_pattern_b`から`git checkout main`しようとすると、mainは既に`nico_demo`で使用中のためエラーになる。
+
+```bash
+# エラー例
+$ git checkout main
+fatal: 'main' is already used by worktree at '/Users/rin5uron/Desktop/nico_demo'
+```
+
+---
+
+### リモートブランチから直接新しいブランチを作る
+
+**重要な発見:** ローカルにcheckoutせずに、リモートのブランチから直接新しいブランチを作成できる。
+
+#### コマンド構文
+```bash
+git push <リモート名> <ソース>:<デスティネーション>
+```
+
+#### 実例
+```bash
+git push origin origin/main:refs/heads/develop-v0.2
+```
+
+**意味:**
+- `origin/main`（リモートのmainブランチ）を元に
+- `develop-v0.2`という新しいブランチをリモートに作成
+
+#### 実行結果
+```bash
+remote:
+remote: Create a pull request for 'develop-v0.2' on GitHub by visiting:
+remote:      https://github.com/rin5uron/nico_demo/pull/new/develop-v0.2
+remote:
+To https://github.com/rin5uron/nico_demo.git
+ * [new branch]      origin/main -> develop-v0.2
+```
+
+---
+
+### メリット
+
+| メリット | 説明 |
+|---------|------|
+| ローカルcheckout不要 | worktreeで別ブランチを開いていても実行可能 |
+| リモート間で完結 | ローカルにブランチを作らずに済む |
+| 速い | リモート同士のやり取りで瞬時に完了 |
+
+---
+
+### GitHub CLI との違い
+
+これは**Git本体の機能**であり、GitHub CLIは不要。
+
+| ツール | 機能 |
+|-------|------|
+| **Git本体** | ブランチ操作、コミット、マージなど基本機能 |
+| **GitHub CLI** | PR作成(`gh pr create`)、Issue管理(`gh issue list`)など GitHub特化機能 |
+
+---
+
+### まとめ
+
+- Git worktreeは同時に複数ブランチで作業するための仕組み
+- `git push`は柔軟で、リモート間でのブランチ操作が可能
+- ローカルにcheckoutせずともリモートブランチを操作できる
+- worktreeで別ブランチを使用中でも、リモートブランチの操作は可能
+
+<br><br><br>
 
 ---
 
