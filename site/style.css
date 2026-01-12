@@ -63,7 +63,7 @@ main section {
   }
 
   /* モバイルで改行用のクラス */
-  .brmobile {
+  .br-mobile {
     display: block;
   }
 }
