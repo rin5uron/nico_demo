@@ -1127,14 +1127,21 @@ footer .legal-notice {
 }
 
 /* --- ギャラリー共通：ページネーション（中央寄せ・約4つ・最後ぼかし）--- */
+/* Swiperデフォルトを上書きして確実に中央寄せ */
 .product-slider-section .swiper-pagination,
-.event-info .swiper-pagination {
-    position: static;
+.event-info .swiper-pagination,
+.product-slider-section .swiper .swiper-pagination,
+.event-info .swiper .swiper-pagination {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
     margin-top: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
     gap: 0.5rem;
+    font-size: 0; /* dynamic時も隙間を消さないよう gap に任せる */
 }
 
 .product-slider-section .swiper-pagination-bullet-active,
@@ -1203,10 +1210,11 @@ footer .legal-notice {
     transform: scale(1.2);
 }
 
-/* いっぱいある時：最後の丸だけぼかして「続きあり」感（dynamicMainBullets: 4 と合わせて） */
-.swiper-pagination-bullet:last-child:not(.swiper-pagination-bullet-active) {
-    opacity: 0.5;
-    filter: blur(0.5px);
+/* いっぱいある時：小さい丸（続きのサイン）をぼかして「続きあり」感（dynamicMainBullets: 4） */
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next,
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
+    opacity: 0.5 !important;
+    filter: blur(1px);
 }
 
 /* --- Mobile Nav --- */
