@@ -727,11 +727,37 @@ header {
     gap: 1.5rem;
 }
 
+/* 季節のおすすめ：カード下の文字エリアを適切な幅に */
+.recommendations-grid .product-card h4,
+.recommendations-grid .product-card .tea-description {
+    max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.recommendations-grid .product-card .tea-description {
+    min-height: 0;
+    font-size: 0.75rem;
+    line-height: 1.45;
+}
+
 /* Tea Gallery - 5 columns */
 .tea-gallery-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
+}
+
+/* 薬膳茶：季節のおすすめと同じ割合で高さ・幅を揃える */
+.tea-gallery-grid .product-card h4,
+.tea-gallery-grid .product-card .tea-description {
+    max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tea-gallery-grid .product-card .tea-description {
+    min-height: 0;
+    font-size: 0.75rem;
+    line-height: 1.45;
 }
 
 
