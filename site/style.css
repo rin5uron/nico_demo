@@ -46,8 +46,8 @@ a:hover {
 
 /* --- Layout & Containers --- */
 .container {
-  max-width: 1100px;
-  width: 90%;
+  max-width: 1200px;
+  width: 92%;
   margin: 0 auto;
 }
 
@@ -319,15 +319,13 @@ header {
 .news-instagram-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
     align-items: start;
 }
 
-/* Single column center layout for news-only pages */
+/* お知らせのみのページも他セクションと同じ幅（1列） */
 .news-instagram-container:has(.news-list-section:only-child) {
     grid-template-columns: 1fr;
-    max-width: 600px;
-    margin: 0 auto;
 }
 
 .calendar-section, .news-list-section {
@@ -367,6 +365,109 @@ header {
     max-height: 450px; /* 高さを制限 */
 }
 
+/* Instagram：1投稿1枠 × 2枠が並列（PC）・スマホは縦1列 */
+.instagram-embed-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.instagram-embed-grid .instagram-latest-wrap {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface);
+}
+
+/* 1つ目を右、2つ目を左に表示（場所を逆に） */
+.instagram-embed-grid .instagram-latest-wrap:first-child {
+    order: 2;
+}
+.instagram-embed-grid .instagram-latest-wrap:last-child {
+    order: 1;
+}
+
+@media (max-width: 768px) {
+    .instagram-embed-grid {
+        grid-template-columns: 1fr;
+    }
+    .instagram-embed-grid .instagram-latest-wrap:first-child,
+    .instagram-embed-grid .instagram-latest-wrap:last-child {
+        order: unset;
+    }
+}
+
+/* 最新投稿（Instagram）ブロック - 1枠1投稿、PC一画面に収まるサイズ */
+.instagram-latest-wrap {
+    width: 100%;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Instagram埋め込みiframe（キャプションまで見える高さ） */
+.instagram-latest-wrap .instagram-embed-iframe,
+.instagram-latest-wrap iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 680px !important;
+    max-height: 70vh !important;
+    min-height: 480px !important;
+    border: none;
+    border-radius: var(--radius-md);
+}
+
+.instagram-latest-link {
+    text-align: center;
+    margin-top: 0.75rem;
+}
+
+.instagram-latest-link a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--brand-main);
+    color: white;
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.instagram-latest-link a:hover {
+    background: var(--brand-accent);
+    text-decoration: none;
+}
+
+/* ボタンじゃない・右寄せのテキストリンク（最新情報はInstagramをご覧ください） */
+.instagram-latest-link--text {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.instagram-latest-link--text a {
+    display: inline;
+    padding: 0;
+    background: none;
+    color: var(--brand-main);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.instagram-latest-link--text a:hover {
+    background: none;
+    color: var(--brand-accent);
+    text-decoration: underline;
+}
+
+.news-list-heading {
+    margin-top: 1.5rem;
+    margin-bottom: 1.2rem;
+}
 
 /* --- News List (inside News Section) --- */
 .news-list-content ul {
@@ -432,7 +533,7 @@ header {
 }
 
 .store-concept-text {
-  max-width: 450px;
+  max-width: 500px;
   justify-self: end;
 }
 
@@ -516,7 +617,7 @@ header {
 }
 
 .featured-product-text {
-  max-width: 450px;
+  max-width: 500px;
   justify-self: end;
 }
 
@@ -1238,7 +1339,7 @@ body.simple-page {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
 }
 
 .store-card {
@@ -1288,15 +1389,15 @@ body.simple-page {
 
 .store-name {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
-  font-weight: normal;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: var(--brand-main);
   margin-bottom: 0.5rem;
 }
 
 .store-description {
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1.6;
   min-height: 60px;
   flex: 1;

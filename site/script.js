@@ -59,10 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // --- Event Swiper Initialization（要素があるページだけ初期化）--- //
-    const eventSwiperEl = document.querySelector('.event-swiper');
-    if (eventSwiperEl) {
-        new Swiper('.event-swiper', {
+    // --- Event Swiper Initialization（複数ある場合はすべて初期化）--- //
+    const eventSwiperEls = document.querySelectorAll('.event-swiper');
+    eventSwiperEls.forEach((eventSwiperEl) => {
+        new Swiper(eventSwiperEl, {
             loop: true,
             slidesPerView: 2,
             spaceBetween: 16,
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-    }
+    });
 
     // --- Product Swiper Initialization（要素があるページだけ初期化）--- //
     const productSwiperEl = document.querySelector('.product-swiper');
