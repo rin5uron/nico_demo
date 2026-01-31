@@ -541,14 +541,7 @@ header {
     border-radius: var(--radius-md);
 }
 
-.event-info .swiper-pagination {
-    position: static;
-    margin-top: 1.5rem;
-}
-
-.event-info .swiper-pagination-bullet-active {
-    background: var(--brand-main);
-}
+/* ギャラリー共通：ページネーションは下で統一 */
 
 .event-info-content {
     text-align: center;
@@ -585,7 +578,7 @@ header {
 
 .store-concept-text h3 {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: normal;
   color: var(--brand-main);
   margin-bottom: 1rem;
@@ -594,10 +587,21 @@ header {
 
 .store-concept-text p {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
-  line-height: 1.8;
+  font-size: 1.05rem;
+  line-height: 1.85;
   color: var(--text);
   margin-bottom: 0;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* バー：写真より文字がはみ出さないよう本文サイズは従来どおり */
+.store-concept--bar .store-concept-text h3 {
+  font-size: 1.35rem;
+}
+.store-concept--bar .store-concept-text p {
+  font-size: 0.95rem;
+  line-height: 1.8;
 }
 
 .store-concept-image img {
@@ -867,6 +871,8 @@ footer .legal-notice {
     justify-self: center;
     text-align: center;
     order: 2;
+    max-width: 100%;
+    padding: 0 0.25rem;
   }
   .store-concept-image {
     order: 1;
@@ -878,18 +884,34 @@ footer .legal-notice {
     text-align: center;
   }
   .contact-info .sns-icons {
-        justify-content: center;
-      }
-      .recommendations-grid {
-        grid-template-columns: repeat(2, 1fr); /* 992px以下で2列 */
-      }
-      .tea-gallery-grid {
-        grid-template-columns: repeat(3, 1fr); /* 992px以下で3列 */
-      }
-      .tea-layout-container {
-        grid-template-columns: repeat(2, 1fr); /* 992px以下で2列 */
-      }
-    }
+    justify-content: center;
+  }
+  .recommendations-grid {
+    grid-template-columns: repeat(2, 1fr); /* 992px以下で2列 */
+  }
+  .tea-gallery-grid {
+    grid-template-columns: repeat(3, 1fr); /* 992px以下で3列 */
+  }
+  .tea-layout-container {
+    grid-template-columns: repeat(2, 1fr); /* 992px以下で2列 */
+  }
+}
+
+/* スマホ：お店についての文字を読みやすく（変な折り返しを防ぐ） */
+@media (max-width: 768px) {
+  .store-concept-text {
+    text-align: left;
+    padding: 0 0.5rem;
+    max-width: 92%;
+  }
+  .store-concept-text h3 {
+    font-size: 1.35rem;
+  }
+  .store-concept-text p {
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+}
 
 @media (max-width: 768px) {
   body {
@@ -1057,6 +1079,20 @@ footer .legal-notice {
         flex-direction: column;
     }
 
+    /* 画像のみのギャラリー（バー等）：スマホで2枚だけきちんと並ぶデザイン */
+    .product-slider-section .product-swiper .swiper-slide:not(:has(.slide-text)),
+    .event-info .event-swiper .swiper-slide {
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: var(--radius-md);
+    }
+    .product-slider-section .product-swiper .swiper-slide:not(:has(.slide-text)) img,
+    .event-info .event-swiper .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     .product-slider-section .swiper-slide img {
         aspect-ratio: 1 / 1;
         width: 100%;
@@ -1082,15 +1118,28 @@ footer .legal-notice {
     .product-slider-section .slide-text p {
         font-size: 0.85rem;
     }
+
+    /* スマホ：2枚だけ見えるようにはみ出しを厳密にクリップ（モダンな見せ方） */
+    .product-slider-section .swiper,
+    .event-info .swiper {
+        overflow: hidden;
+    }
 }
 
-.product-slider-section .swiper-pagination {
+/* --- ギャラリー共通：ページネーション（中央寄せ・約4つ・最後ぼかし）--- */
+.product-slider-section .swiper-pagination,
+.event-info .swiper-pagination {
     position: static;
     margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.product-slider-section .swiper-pagination-bullet-active {
-    background: var(--brand-main);
+.product-slider-section .swiper-pagination-bullet-active,
+.event-info .swiper-pagination-bullet-active {
+    background-color: var(--brand-main);
 }
 
 /* --- Tea Tag --- */
@@ -1119,6 +1168,15 @@ footer .legal-notice {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+}
+.swiper-slide-active {
+    z-index: 2;
+}
+/* 半端に見える次の・前のスライドは背面に（気持ち悪くならない） */
+.swiper-slide-next,
+.swiper-slide-prev {
+    z-index: 0;
 }
 
 .swiper-slide img {
@@ -1129,14 +1187,26 @@ footer .legal-notice {
 }
 
 .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background-color: #ccc;
+    width: 8px;
+    height: 8px;
+    background-color: var(--border);
     opacity: 1;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.swiper-pagination-bullet:hover {
+    background-color: var(--brand-accent);
 }
 
 .swiper-pagination-bullet-active {
     background-color: var(--brand-main);
+    transform: scale(1.2);
+}
+
+/* いっぱいある時：最後の丸だけぼかして「続きあり」感（dynamicMainBullets: 4 と合わせて） */
+.swiper-pagination-bullet:last-child:not(.swiper-pagination-bullet-active) {
+    opacity: 0.5;
+    filter: blur(0.5px);
 }
 
 /* --- Mobile Nav --- */
@@ -1342,8 +1412,12 @@ body.simple-page {
 
 /* --- Mobile Responsive --- */
 @media (max-width: 768px) {
-    /* Hide HOME text on mobile */
-    .home-link {
+    /* スマホでも minimal-header の HOME は表示（トップへの導線） */
+    .minimal-header .home-link {
+        display: inline-block;
+    }
+    /* メインサイトヘッダーの HOME は非表示のまま */
+    .header:not(.minimal-header) .home-link {
         display: none;
     }
 
@@ -1608,15 +1682,46 @@ body.simple-page {
     }
 }
 
-/* --- Swiper Navigation Arrows --- */
-.swiper-button-next,
-.swiper-button-prev {
-    color: #3d3d3d; /* Match --text color */
+/* --- Swiper Navigation Arrows（写真に被らないよう外側に配置）--- */
+.product-slider-section .swiper,
+.event-info .swiper {
+    padding: 0 44px;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--text);
+    width: 36px;
+    height: 36px;
+    background: var(--surface);
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: var(--brand-main);
+    color: white;
+    border-color: var(--brand-main);
+}
+
+/* スマホでも矢印を表示（ギャラリー操作の導線） */
 @media (max-width: 768px) {
     .swiper-button-next,
     .swiper-button-prev {
-        display: none;
+        width: 32px;
+        height: 32px;
+    }
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 12px;
     }
 }
