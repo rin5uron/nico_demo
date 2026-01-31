@@ -59,58 +59,64 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // --- Event Swiper Initialization --- //
-    const eventSwiper = new Swiper('.event-swiper', {
-        loop: true,
-        slidesPerView: 2,
-        spaceBetween: 16,
-        speed: 1500,
-        grabCursor: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            768: {
-                slidesPerView: 4,
-                spaceBetween: 24,
+    // --- Event Swiper Initialization（要素があるページだけ初期化）--- //
+    const eventSwiperEl = document.querySelector('.event-swiper');
+    if (eventSwiperEl) {
+        new Swiper('.event-swiper', {
+            loop: true,
+            slidesPerView: 2,
+            spaceBetween: 16,
+            speed: 1500,
+            grabCursor: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: eventSwiperEl.querySelector('.swiper-pagination'),
+                clickable: true,
+            },
+            navigation: {
+                nextEl: eventSwiperEl.querySelector('.swiper-button-next'),
+                prevEl: eventSwiperEl.querySelector('.swiper-button-prev'),
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                }
             }
-        }
-    });
+        });
+    }
 
-    // --- Product Swiper Initialization --- //
-    const productSwiper = new Swiper('.product-swiper', {
-        loop: true,
-        slidesPerView: 2,
-        spaceBetween: 16,
-        grabCursor: true,
-        speed: 1500,
-        autoplay: {
-            delay: 3500,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            768: {
-                slidesPerView: 4,
-                spaceBetween: 24,
+    // --- Product Swiper Initialization（要素があるページだけ初期化）--- //
+    const productSwiperEl = document.querySelector('.product-swiper');
+    if (productSwiperEl) {
+        new Swiper('.product-swiper', {
+            loop: true,
+            slidesPerView: 2,
+            spaceBetween: 16,
+            grabCursor: true,
+            speed: 1500,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: productSwiperEl.querySelector('.swiper-pagination'),
+                clickable: true,
+            },
+            navigation: {
+                nextEl: productSwiperEl.querySelector('.swiper-button-next'),
+                prevEl: productSwiperEl.querySelector('.swiper-button-prev'),
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                }
             }
-        }
-    });
+        });
+    }
 
 });
