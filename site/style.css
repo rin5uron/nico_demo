@@ -262,6 +262,22 @@ header {
   letter-spacing: 0.2em; /* Increased spacing for vertical */
 }
 
+/* カレーページ：ヒーロー文字を画像内に収める */
+.main-visual--curry .main-visual-text {
+  max-height: 85%;
+  margin-right: 12%;
+}
+.main-visual--curry .main-visual-text h1 {
+  font-size: clamp(1.25rem, 4.5vw, 2.25rem);
+  letter-spacing: 0.15em;
+}
+
+@media (max-width: 768px) {
+  .main-visual--curry .main-visual-text h1 {
+    font-size: clamp(1rem, 5vw, 1.75rem);
+  }
+}
+
 /* --- Section Titles --- */
 .section-title {
   text-align: center;
@@ -399,6 +415,21 @@ header {
     }
 }
 
+/* カレー・バー：PCでインスタ枠を狭くして圧迫感を軽減 */
+@media (min-width: 769px) {
+    .news-instagram.instagram-embed-narrow .news-instagram-container {
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .news-instagram.instagram-embed-narrow .instagram-latest-wrap .instagram-embed-iframe,
+    .news-instagram.instagram-embed-narrow .instagram-latest-wrap iframe {
+        height: 520px !important;
+        max-height: 55vh !important;
+        min-height: 380px !important;
+    }
+}
+
 /* 最新投稿（Instagram）ブロック - 1枠1投稿、PC一画面に収まるサイズ */
 .instagram-latest-wrap {
     width: 100%;
@@ -430,7 +461,7 @@ header {
     background: var(--brand-main);
     color: white;
     border-radius: var(--radius-md);
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     font-size: 0.9rem;
     text-decoration: none;
     transition: background 0.3s ease;
@@ -452,7 +483,7 @@ header {
     padding: 0;
     background: none;
     color: var(--brand-main);
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     font-size: 0.9rem;
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -524,21 +555,49 @@ header {
     margin-top: 3rem;
 }
 
+.event-info-content.instagram-latest-link--text {
+    text-align: center;
+}
+
+/* --- 写真と文字セクション（お店について）幅を揃えて狭く --- */
+#store-concept .container {
+  max-width: 960px;
+}
+
+/* ニコ酒店：最新情報・お店について・今月の新商品の幅を揃える */
+.content-narrow .container {
+  max-width: 960px;
+}
+
 /* --- Store Concept --- */
 .store-concept-container {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 2.5rem;
-  align-items: center;
+  align-items: start;
 }
 
 .store-concept-text {
   max-width: 500px;
-  justify-self: end;
+  justify-self: start;
+  text-align: left;
+}
+
+.store-concept-text h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: normal;
+  color: var(--brand-main);
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 .store-concept-text p {
-  margin-bottom: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 0;
 }
 
 .store-concept-image img {
@@ -855,6 +914,12 @@ footer .legal-notice {
   .menu-toggle {
     display: flex;
   }
+  /* スマホ：ヒーロー高さを抑えてコンテンツを早く見せる（業界傾向に合わせる） */
+  .main-visual {
+    height: 45vh;
+    min-height: 240px;
+  }
+
   .main-visual-text {
     margin-right: 10%;
   }
