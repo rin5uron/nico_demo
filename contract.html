@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>要件定義兼見積書・トータル版</title>
 <style>
-body { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; line-height: 1.8; max-width: 680px; margin: 2.5rem auto; padding: 0 1.5rem; box-sizing: border-box; }
+html { overflow-x: hidden; }
+body { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; line-height: 1.8; max-width: 680px; margin: 2.5rem auto; padding: 0 1.5rem; box-sizing: border-box; width: 100%; overflow-x: hidden; }
 h1 { font-size: 1.25rem; border-bottom: 1px solid #ccc; padding-bottom: 0.75rem; margin-bottom: 0.5rem; }
 h2 { font-size: 1.1rem; margin-top: 2.25rem; margin-bottom: 0.75rem; }
 h3 { font-size: 1rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-.wrap-table { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.25rem 0; }
-table { border-collapse: collapse; width: 100%; min-width: 280px; }
+.wrap-table { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.25rem 0; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; min-width: 280px; table-layout: fixed; }
 th, td { border: 1px solid #333; padding: 0.6rem 0.85rem; text-align: left; }
 th:last-child, td:last-child { white-space: nowrap; min-width: 6.5em; text-align: right; }
 th { background: #f5f5f5; }
@@ -19,20 +20,15 @@ ul, ol { margin: 0.75rem 0; padding-left: 1.5rem; }
 ul li, ol li { margin-bottom: 0.35rem; }
 p { margin: 0.85rem 0; }
 @media (max-width: 600px) {
-  body { margin: 1rem auto; padding: 0 1rem; }
-  h2 { margin-top: 1.75rem; }
-  h3 { margin-top: 1.25rem; }
-  .wrap-table { overflow-x: visible; margin: 1rem 0; }
-  .wrap-table table { display: block; min-width: auto; }
-  .wrap-table thead { display: none; }
-  .wrap-table tr { display: block; border: 1px solid #333; border-bottom: none; padding: 0.6rem 0; }
-  .wrap-table tr:last-child { border-bottom: 1px solid #333; }
-  .wrap-table td { display: block; padding: 0.35rem 0 0.35rem 0; font-size: 0.9rem; line-height: 1.5; border: none; }
-  .wrap-table td:first-child::before { content: "項目："; font-weight: bold; display: inline-block; min-width: 3.2em; }
-  .wrap-table td:nth-child(2)::before { content: "内容："; font-weight: bold; display: inline-block; min-width: 3.2em; }
-  .wrap-table td:nth-child(3)::before { content: "金額："; font-weight: bold; display: inline-block; min-width: 3.2em; }
-  .wrap-table td:last-child { text-align: left; }
-  .wrap-table tr td:empty::before { content: none; }
+  body { margin: 0 auto; padding: 0 0.75rem; font-size: 14px; max-width: 100%; }
+  .wrap-table { margin: 0.75rem 0; max-width: 100%; width: 100%; }
+  .wrap-table table { min-width: 280px; width: 100%; table-layout: fixed; }
+  th, td { padding: 0.4rem 0.45rem; font-size: 0.8rem; line-height: 1.45; word-break: break-all; overflow-wrap: break-word; }
+  th:first-child, td:first-child { width: 26%; max-width: 26%; }
+  th:nth-child(2), td:nth-child(2) { width: 50%; max-width: 50%; }
+  th:last-child, td:last-child { width: 24%; max-width: 24%; white-space: normal; min-width: 0; }
+  h2 { margin-top: 1.5rem; font-size: 1rem; }
+  h3 { margin-top: 1rem; font-size: 0.9rem; }
 }
 </style>
 </head>
