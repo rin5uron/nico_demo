@@ -2,19 +2,28 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>要件定義兼見積書・トータル版</title>
 <style>
-body { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; line-height: 1.6; max-width: 700px; margin: 2rem auto; padding: 0 1rem; }
-h1 { font-size: 1.25rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem; }
-h2 { font-size: 1.1rem; margin-top: 1.5rem; }
-h3 { font-size: 1rem; margin-top: 1rem; }
-table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-th, td { border: 1px solid #333; padding: 0.4rem 0.6rem; text-align: left; }
+body { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; line-height: 1.8; max-width: 680px; margin: 2.5rem auto; padding: 0 1.5rem; box-sizing: border-box; }
+h1 { font-size: 1.25rem; border-bottom: 1px solid #ccc; padding-bottom: 0.75rem; margin-bottom: 0.5rem; }
+h2 { font-size: 1.1rem; margin-top: 2.25rem; margin-bottom: 0.75rem; }
+h3 { font-size: 1rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.wrap-table { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.25rem 0; }
+table { border-collapse: collapse; width: 100%; min-width: 280px; }
+th, td { border: 1px solid #333; padding: 0.6rem 0.85rem; text-align: left; }
+th:last-child, td:last-child { white-space: nowrap; min-width: 6.5em; text-align: right; }
 th { background: #f5f5f5; }
-td:last-child { text-align: right; }
-hr { border: none; border-top: 1px solid #ddd; margin: 1.5rem 0; }
-ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
-p { margin: 0.5rem 0; }
+hr { border: none; border-top: 1px solid #ddd; margin: 2rem 0; }
+ul, ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+ul li, ol li { margin-bottom: 0.35rem; }
+p { margin: 0.85rem 0; }
+@media (max-width: 600px) {
+  body { margin: 1rem auto; padding: 0 1rem; }
+  th, td { padding: 0.5rem 0.6rem; font-size: 0.95rem; }
+  h2 { margin-top: 1.75rem; }
+  h3 { margin-top: 1.25rem; }
+}
 </style>
 </head>
 <body>
@@ -23,18 +32,18 @@ p { margin: 0.5rem 0; }
 
 <p><strong>発注者：</strong> ニコ酒店様<br>
 <strong>受注者：</strong> 加藤琴音<br>
-<strong>作成日：</strong> 2025年2月1日</p>
+<strong>作成日：</strong> 2026年2月1日</p>
 
 <hr>
 
 <h2>費用トータル（目安）</h2>
 
-<table>
+<div class="wrap-table"><table>
 <tr><th>区分</th><th>内容</th><th>金額</th></tr>
-<tr><td><strong>初期費用</strong></td><td>制作一式（2.1＋2.2）</td><td>10万円（税別）</td></tr>
+<tr><td><strong>初期費用</strong></td><td>制作一式（2-1、2-2参照）</td><td>10万円</td></tr>
 <tr><td><strong>継続費用</strong></td><td>保守・ドメイン管理（年間契約）</td><td>5万円／年</td></tr>
 <tr><td><strong>トータルご請求金額</strong></td><td>制作＋1年分保守</td><td><strong>15万円（税別）</strong></td></tr>
-</table>
+</table></div>
 
 <p>※継続費用は年間契約割引適用（定価68,000円／年→50,000円／年）。1年ごとの更新。詳細は本文「3. 継続的な費用」をご参照ください。</p>
 
@@ -54,30 +63,31 @@ p { margin: 0.5rem 0; }
 <p>要件と見積もり概算を提示いたします。<br>
 
 
-<h3>2.1. （基本制作）</h3>
+<h3>2-1. （基本制作）</h3>
 
-<table>
+<div class="wrap-table"><table>
 <tr><th>項目</th><th>内容</th><th>金額</th></tr>
 <tr><td>トップページ</td><td>3店舗リンク設置のシンプルデザイン</td><td>1.5万円</td></tr>
-<tr><td>店舗ページ×3</td><td>各店舗紹介／商品紹介／お知らせ／アクセス情報</td><td>6万円 (2万円×3)</td></tr>
+<tr><td>店舗ページ×3</td><td>各店舗紹介／商品紹介／お知らせ／アクセス情報</td><td>6万円<br>(2万円×3)</td></tr>
 <tr><td>全体デザイン調整・レスポンシブ対応</td><td>PC／スマホ対応含む</td><td>1.5万円</td></tr>
 <tr><td><strong>合計</strong></td><td></td><td><strong>7万円</strong></td></tr>
-</table>
+</table></div>
 
-<h3>2.2. 基本制作に加え、以下を含みます。</h3>
+<h3>2-2. 基本制作に加え、以下を含みます。</h3>
 
-<table>
+<div class="wrap-table"><table>
 <tr><th>項目</th><th>内容</th><th>金額</th></tr>
 <tr><td>サーバー連携・管理</td><td>契約・設定・SSL更新サポート</td><td>1万円</td></tr>
 <tr><td>画像デザイン</td><td>ロゴ透過・最適化</td><td>0.5万円</td></tr>
 <tr><td>ブログ更新フォーム導入</td><td>CMS機能により更新可能</td><td>1.5万円</td></tr>
 <tr><td><strong>合計</strong></td><td>基本制作（7万円）＋上記追加</td><td><strong>10万円</strong></td></tr>
-</table>
+</table></div>
 
-<h3>2.3. 備考</h3>
+<h3>2-3. 備考</h3>
 <ul>
 <li>ドメインはご用意済みです。管理は受注者が行います。</li>
 <li>ホスティングは以下のご提案書の通り<strong>Vercel無料プラン</strong>です。今後の拡張等によっては別プランをご提案する場合があります。</li>
+<li><strong>デモ・確認用URL：</strong> <a href="https://nico-demo-green.vercel.app/" target="_blank" rel="noopener noreferrer">https://nico-demo-green.vercel.app/</a></li>
 <li><strong>継続的な保守・ドメイン管理</strong>については、下記「3. 継続的な費用」にて詳細をご案内しております。</li>
 </ul>
 
@@ -101,14 +111,14 @@ p { margin: 0.5rem 0; }
 
 <h3>3.2. 費用（年間契約）</h3>
 
-<table>
+<div class="wrap-table"><table>
 <tr><th>項目</th><th>内容</th><th>金額</th></tr>
 <tr><td>サイト保守</td><td>技術対応・軽微な修正（月1時間目安以内）</td><td>60,000円／年</td></tr>
 <tr><td>ドメイン管理</td><td>更新・期限管理・トラブル対応</td><td>8,000円／年</td></tr>
 <tr><td><strong>定価合計</strong></td><td></td><td><strong>68,000円／年</strong></td></tr>
 <tr><td><strong>年間契約割引</strong></td><td>1年一括お支払いで割引</td><td><strong>－18,000円</strong></td></tr>
 <tr><td><strong>お支払い金額</strong></td><td></td><td><strong>50,000円／年</strong></td></tr>
-</table>
+</table></div>
 
 <p>※サイト保守の定価：5,000円／月（60,000円／年）<br>
 ※年間契約により、お支払い月額換算 約4,167円（定価比 約17％割引）</p>
@@ -182,7 +192,7 @@ p { margin: 0.5rem 0; }
 
 <hr>
 
-<h2>8. 著作権・使用許諾</h2>
+<h2>8.：著作権・使用許諾</h2>
 <ul>
 <li>本制作物（納品したウェブサイト・デザイン・コード等）の<strong>著作権は発注者に帰属</strong>します。</li>
 <li><strong>受注者が提供した写真・画像</strong>の著作権は<strong>受注者に帰属</strong>します。発注者が提供した素材の著作権は発注者に帰属します。</li>
@@ -201,6 +211,7 @@ p { margin: 0.5rem 0; }
 
 <h2>10. 合意事項</h2>
 <p>本書は<strong>要件定義・見積書兼契約書</strong>とします。発注者が本書の内容を許諾（同意）した時点で<strong>本契約が成立</strong>します。本書の内容を発注者・受注者双方で確認し、相互に合意のうえ制作・契約を進めます。</p>
+<p>承諾いただけましたら、本書と請求書をPDFでお送りいたします。</p>
 <p>（任意署名欄）<br>
 発注者（ニコ酒店）　　＿＿＿＿＿＿＿＿＿　日付：<br>
 受注者（加藤琴音）　　＿＿＿＿＿＿＿＿＿　日付：</p>
