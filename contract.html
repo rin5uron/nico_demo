@@ -20,10 +20,19 @@ ul li, ol li { margin-bottom: 0.35rem; }
 p { margin: 0.85rem 0; }
 @media (max-width: 600px) {
   body { margin: 1rem auto; padding: 0 1rem; }
-  th, td { padding: 0.5rem 0.5rem; font-size: 0.8rem; line-height: 1.5; }
-  th:first-child, td:first-child { max-width: 28%; word-break: keep-all; overflow-wrap: break-word; }
   h2 { margin-top: 1.75rem; }
   h3 { margin-top: 1.25rem; }
+  .wrap-table { overflow-x: visible; margin: 1rem 0; }
+  .wrap-table table { display: block; min-width: auto; }
+  .wrap-table thead { display: none; }
+  .wrap-table tr { display: block; border: 1px solid #333; border-bottom: none; padding: 0.6rem 0; }
+  .wrap-table tr:last-child { border-bottom: 1px solid #333; }
+  .wrap-table td { display: block; padding: 0.35rem 0 0.35rem 0; font-size: 0.9rem; line-height: 1.5; border: none; }
+  .wrap-table td:first-child::before { content: "項目："; font-weight: bold; display: inline-block; min-width: 3.2em; }
+  .wrap-table td:nth-child(2)::before { content: "内容："; font-weight: bold; display: inline-block; min-width: 3.2em; }
+  .wrap-table td:nth-child(3)::before { content: "金額："; font-weight: bold; display: inline-block; min-width: 3.2em; }
+  .wrap-table td:last-child { text-align: left; }
+  .wrap-table tr td:empty::before { content: none; }
 }
 </style>
 </head>
@@ -214,6 +223,7 @@ p { margin: 0.85rem 0; }
 <h2>10. 合意事項</h2>
 <p>本書は<strong>要件定義・見積書兼契約書</strong>とします。発注者が本書の内容を許諾（同意）した時点で<strong>本契約が成立</strong>します。本書の内容を発注者・受注者双方で確認し、相互に合意のうえ制作・契約を進めます。</p>
 <p>承諾いただけましたら、本書と請求書をPDFでお送りいたします。</p>
+<p><strong>本契約書の正本データURL：</strong> <a href="https://nico-demo-green.vercel.app/contract.html" target="_blank" rel="noopener noreferrer">https://nico-demo-green.vercel.app/contract.html</a></p>
 <p>（任意署名欄）<br>
 発注者（ニコ酒店）　　＿＿＿＿＿＿＿＿＿　日付：<br>
 受注者（加藤琴音）　　＿＿＿＿＿＿＿＿＿　日付：</p>

@@ -20,16 +20,25 @@ ul li, ol li { margin-bottom: 0.35rem; }
 p { margin: 0.85rem 0; }
 @media (max-width: 600px) {
   body { margin: 1rem auto; padding: 0 1rem; }
-  th, td { padding: 0.5rem 0.5rem; font-size: 0.8rem; line-height: 1.5; }
-  th:first-child, td:first-child { max-width: 28%; word-break: keep-all; overflow-wrap: break-word; }
   h2 { margin-top: 1.75rem; }
   h3 { margin-top: 1.25rem; }
+  .wrap-table { overflow-x: visible; margin: 1rem 0; }
+  .wrap-table table { display: block; min-width: auto; }
+  .wrap-table thead { display: none; }
+  .wrap-table tr { display: block; border: 1px solid #333; border-bottom: none; padding: 0.6rem 0; }
+  .wrap-table tr:last-child { border-bottom: 1px solid #333; }
+  .wrap-table td { display: block; padding: 0.35rem 0 0.35rem 0; font-size: 0.9rem; line-height: 1.5; border: none; }
+  .wrap-table td:first-child::before { content: "項目："; font-weight: bold; display: inline-block; min-width: 3.2em; }
+  .wrap-table td:nth-child(2)::before { content: "内容："; font-weight: bold; display: inline-block; min-width: 3.2em; }
+  .wrap-table td:nth-child(3)::before { content: "金額："; font-weight: bold; display: inline-block; min-width: 3.2em; }
+  .wrap-table td:last-child { text-align: left; }
+  .wrap-table tr td:empty::before { content: none; }
 }
 </style>
 </head>
 <body>
 
-<h1>ウェブサイト制作ご提案書<br>（要件定義兼見積書・トータル版）</h1>
+<h1>ウェブサイト制作ご提案書（要件定義兼見積書・トータル版）</h1>
 
 <p><strong>発注者：</strong> ニコ酒店様<br>
 <strong>受注者：</strong> 加藤琴音<br>
@@ -46,7 +55,7 @@ p { margin: 0.85rem 0; }
 <tr><td><strong>トータルご請求金額</strong></td><td>制作＋1年分保守</td><td><strong>15万円（税別）</strong></td></tr>
 </table></div>
 
-<p>※継続費用は年間契約割引適用（定価68,000円／年→50,000円／年）<br>
+<p>※継続費用は年間契約割引適用<br>（定価68,000円／年→50,000円／年）<br>
 ※1年ごとの更新とさせていただきます。詳細は本文「3. 継続的な費用」をご参照ください。</p>
 
 <hr>
@@ -63,7 +72,7 @@ p { margin: 0.85rem 0; }
 
 <h2>2. 要件確認</h2>
 <p>要件と見積もり概算を提示いたします。<br>
-
+<strong>※長期的な運用を考慮し、Bプランでの作成を前提としています。</strong></p>
 
 <h3>2-1. （基本制作）</h3>
 
@@ -103,7 +112,7 @@ p { margin: 0.85rem 0; }
 <ul>
 <li>技術的な質問対応</li>
 <li>表示不具合・トラブル対応</li>
-<li>軽微な修正対応（月あたり目安1時間以内）</li>
+<li>軽微な修正対応・その他</li>
 </ul>
 <p><strong>ドメイン管理</strong></p>
 <ul>
@@ -214,9 +223,10 @@ p { margin: 0.85rem 0; }
 <h2>10. 合意事項</h2>
 <p>本書は<strong>要件定義・見積書兼契約書</strong>とします。発注者が本書の内容を許諾（同意）した時点で<strong>本契約が成立</strong>します。本書の内容を発注者・受注者双方で確認し、相互に合意のうえ制作・契約を進めます。</p>
 <p>承諾いただけましたら、本書と請求書をPDFでお送りいたします。</p>
+<p><strong>本契約書の正本データURL：</strong> <a href="https://nico-demo-green.vercel.app/contract.html" target="_blank" rel="noopener noreferrer">https://nico-demo-green.vercel.app/contract.html</a></p>
 <p>（任意署名欄）<br>
-発注者（ニコ酒店）　　＿＿＿＿＿＿＿＿＿　日付：<br>
-受注者（加藤琴音）　　＿＿＿＿＿＿＿＿＿　日付：</p>
+発注者（ニコ酒店）　　＿＿＿＿＿＿日付：<br>
+受注者（加藤琴音）　　＿＿＿＿＿＿日付：</p>
 
 </body>
 </html>
