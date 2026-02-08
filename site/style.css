@@ -1071,6 +1071,29 @@ footer .legal-notice {
     line-height: 1.5;
 }
 
+/* テキストのみスライド（写真なし・黒背景） */
+.product-slider-section .swiper-slide.text-only-slide {
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-slider-section .swiper-slide.text-only-slide .slide-text {
+    position: static;
+    background: none;
+    text-align: center;
+    padding: 1.5rem;
+    width: 100%;
+}
+.product-slider-section .swiper-slide.text-only-slide .slide-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+.product-slider-section .swiper-slide.text-only-slide .slide-text p {
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
 /* Mobile: Separate image and text */
 @media (max-width: 768px) {
     .product-slider-section .swiper-slide {
@@ -1123,6 +1146,49 @@ footer .legal-notice {
     .product-slider-section .swiper,
     .event-info .swiper {
         overflow: hidden;
+    }
+
+    /* スマホ全表示グリッド（data-mobile-grid が付いたセクション） */
+    [data-mobile-grid] .swiper {
+        overflow: visible !important;
+        padding: 0 !important;
+    }
+    [data-mobile-grid] .swiper-wrapper {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        transform: none !important;
+        gap: 12px;
+    }
+    [data-mobile-grid] .swiper-slide {
+        width: calc(50% - 6px) !important;
+        margin: 0 !important;
+        flex-shrink: 0;
+    }
+    [data-mobile-grid] .swiper-slide-duplicate {
+        display: none !important;
+    }
+    [data-mobile-grid] .swiper-pagination,
+    [data-mobile-grid] .swiper-button-prev,
+    [data-mobile-grid] .swiper-button-next {
+        display: none !important;
+    }
+
+    /* テキストのみスライド：スマホ */
+    [data-mobile-grid] .swiper-slide.text-only-slide {
+        aspect-ratio: 1 / 1;
+        background: #111;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    [data-mobile-grid] .swiper-slide.text-only-slide .slide-text {
+        position: static;
+        background: none;
+        color: #fff;
+        text-shadow: none;
+        min-height: 0;
+        padding: 1rem;
+        text-align: center;
     }
 }
 

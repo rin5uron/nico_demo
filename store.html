@@ -57,7 +57,7 @@
             </div>
         </section>
 
-        <section class="product-slider-section">
+        <section class="product-slider-section" data-mobile-grid>
             <div class="container fade-in">
                 <div class="section-title">
                     <p>PICK UP</p>
@@ -65,13 +65,7 @@
                 </div>
                 <div class="swiper product-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="site/images/store_nico/top-recommend/fukagawa.rose.jpg" alt="FUEKI">
-                            <div class="slide-text">
-                                <h3>FUEKI</h3>
-                                <p>深川の地酒改め地ジン</p>
-                            </div>
-                        </div>
+                        <!-- 写真＋説明文（照合済み） -->
                         <div class="swiper-slide">
                             <img src="site/images/store_nico/top-recommend/fukagawa.ichigo.jpg" alt="ツブロ苺">
                             <div class="slide-text">
@@ -115,13 +109,6 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="site/images/store_nico/top-recommend/redberryamaro.jpg" alt="redberryamaro">
-                            <div class="slide-text">
-                                <h3>redberryamaro</h3>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
                             <img src="site/images/store_nico/top-recommend/onino.amaro.jpg" alt="樽熟成 ONI no amaro KZ">
                             <div class="slide-text">
                                 <h3>樽熟成 ONI no amaro KZ</h3>
@@ -157,38 +144,72 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="site/images/store_nico/top-recommend/holon.kinmokusei.jpg" alt="holon.kinmokusei">
-                            <div class="slide-text">
-                                <h3>holon.kinmokusei</h3>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
                             <img src="site/images/store_nico/top-recommend/geekstill.absinthe.jpg" alt="Geekstill アブサン">
                             <div class="slide-text">
                                 <h3>Geekstill アブサン</h3>
                                 <p>惡の華は緑の妖精の傍らに</p>
                             </div>
                         </div>
+                        <!-- 写真だけ（説明文不明） -->
+                        <div class="swiper-slide">
+                            <img src="site/images/store_nico/top-recommend/fukagawa.rose.jpg" alt="fukagawa.rose">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="site/images/store_nico/top-recommend/redberryamaro.jpg" alt="redberryamaro">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="site/images/store_nico/top-recommend/holon.kinmokusei.jpg" alt="holon.kinmokusei">
+                        </div>
                         <div class="swiper-slide">
                             <img src="site/images/store_nico/top-recommend/hidra.jpg" alt="hidra">
-                            <div class="slide-text">
-                                <h3>hidra</h3>
-                                <p></p>
-                            </div>
                         </div>
                         <div class="swiper-slide">
                             <img src="site/images/store_nico/top-recommend/Passionfruit.jpg" alt="Passionfruit">
-                            <div class="slide-text">
-                                <h3>Passionfruit</h3>
-                                <p></p>
-                            </div>
                         </div>
                         <div class="swiper-slide">
                             <img src="site/images/store_nico/top-recommend/Saigon.snake.jpg" alt="Saigon.snake">
+                        </div>
+                        <!-- テキストだけ（写真なし・黒背景） -->
+                        <div class="swiper-slide text-only-slide">
                             <div class="slide-text">
-                                <h3>Saigon.snake</h3>
-                                <p></p>
+                                <h3>FUEKI</h3>
+                                <p>深川の地酒改め地ジン</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide text-only-slide">
+                            <div class="slide-text">
+                                <h3>ツブロアールグレイ</h3>
+                                <p>静かに漂う爽やかなアールグレイ</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide text-only-slide">
+                            <div class="slide-text">
+                                <h3>ツブロコーヒー（batch4）</h3>
+                                <p>こんなコーヒーは如何ですか？</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide text-only-slide">
+                            <div class="slide-text">
+                                <h3>新蒸留研究所No.7</h3>
+                                <p>ジュニパーを真っ直ぐ楽しめる1本</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide text-only-slide">
+                            <div class="slide-text">
+                                <h3>新蒸留研究所No.8</h3>
+                                <p>ラベンダーから……柑橘？？</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide text-only-slide">
+                            <div class="slide-text">
+                                <h3>桑ノ木田30</h3>
+                                <p>食事にも併せやすい無糖リキュール</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide text-only-slide">
+                            <div class="slide-text">
+                                <h3>ホロン 晴</h3>
+                                <p>晴れやかな日はこのジンと共に</p>
                             </div>
                         </div>
                     </div>
@@ -339,6 +360,13 @@
                     </div>
                     <div class="product-card">
                         <a href="#">
+                            <img src="site/images/store_nico/tea/kusamoe.jpg" alt="草萌 - Kusamoe">
+                            <h4>草萌 - Kusamoe</h4>
+                            <p class="tea-description">抑え、整える</p>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <a href="#">
                             <img src="site/images/store_nico/tea/ryokuin.jpg" alt="緑蔭 - Ryokuin">
                             <h4>緑蔭 - Ryokuin</h4>
                             <p class="tea-description">涼み、乾かす</p>
@@ -356,13 +384,6 @@
                             <img src="site/images/store_nico/tea/anka.jpg" alt="行火 - Anka">
                             <h4>行火 - Anka</h4>
                             <p class="tea-description">温め、巡らせる</p>
-                        </a>
-                    </div>
-                    <div class="product-card">
-                        <a href="#">
-                            <img src="site/images/store_nico/tea/kusamoe.jpg" alt="草萌 - Kusamoe">
-                            <h4>草萌 - Kusamoe</h4>
-                            <p class="tea-description">抑え、整える</p>
                         </a>
                     </div>
                 </div>
