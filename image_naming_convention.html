@@ -27,9 +27,31 @@
         th, td { border: 1px solid #ddd; padding: 0.5rem 0.75rem; text-align: left; }
         th { background: #f5f5f5; }
         code, .code { font-family: monospace; background: #f0f0f0; padding: 0.1em 0.4em; border-radius: 3px; font-size: 0.9em; }
-        pre { background: #f5f5f5; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.9rem; }
+        pre { background: #f5f5f5; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.9rem; -webkit-overflow-scrolling: touch; }
         hr { border: none; border-top: 1px solid #eee; margin: 1.5rem 0; }
         .note { font-size: 0.9rem; color: #666; font-style: italic; margin-top: 1rem; }
+
+        /* iPad */
+        @media (max-width: 768px) {
+            body { padding: 1.5rem 1.25rem; }
+            h2 { margin-top: 1.5rem; font-size: 1.1rem; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 0.4rem 0.5rem; }
+        }
+
+        /* スマホ */
+        @media (max-width: 480px) {
+            body { padding: 1.25rem 1rem; max-width: 100%; }
+            h1 { font-size: 1.35rem; }
+            h2 { font-size: 1.05rem; margin-top: 1.5rem; }
+            h3 { font-size: 0.95rem; }
+            p, li { font-size: 0.95rem; }
+            .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -1rem; }
+            .table-wrap table { font-size: 0.8rem; min-width: 280px; }
+            th, td { padding: 0.4rem 0.5rem; }
+            pre { padding: 0.75rem; font-size: 0.85rem; }
+            code { font-size: 0.85em; word-break: break-all; }
+        }
     </style>
 </head>
 <body>
@@ -88,12 +110,14 @@
 </ul>
 
 <h3>具体例</h3>
+<div class="table-wrap">
 <table>
     <tr><th>OK例</th><th>NG例</th><th>理由</th></tr>
     <tr><td><code>product_a.jpg</code></td><td><code>商品A.jpg</code></td><td>日本語は使えない</td></tr>
     <tr><td><code>shop-exterior.jpg</code></td><td><code>お店の外観.jpg</code></td><td>日本語は使えない</td></tr>
     <tr><td><code>event_20251009.jpg</code></td><td><code>イベント 2025.10.09.jpg</code></td><td>スペースと全角文字は使えない</td></tr>
 </table>
+</div>
 
 <hr>
 
