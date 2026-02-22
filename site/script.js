@@ -59,12 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // --- Event Swiper Initialization（複数ある場合はすべて初期化）--- //
+    // --- Event Swiper（1枚ずつ表示）--- //
     const eventSwiperEls = document.querySelectorAll('.event-swiper');
     eventSwiperEls.forEach((eventSwiperEl) => {
         new Swiper(eventSwiperEl, {
             loop: true,
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 16,
             speed: 1500,
             grabCursor: true,
@@ -84,19 +84,19 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             breakpoints: {
                 768: {
-                    slidesPerView: 4,
+                    slidesPerView: 1,
                     spaceBetween: 24,
                 }
             }
         });
     });
 
-    // --- Product Swiper Initialization（複数ある場合はすべて初期化・バーギャラリーも動く）--- //
+    // --- Product Swiper（1枚ずつ表示・矢印は画像に被らない）--- //
     const productSwiperEls = document.querySelectorAll('.product-swiper');
     productSwiperEls.forEach((productSwiperEl) => {
         new Swiper(productSwiperEl, {
             loop: true,
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 16,
             grabCursor: true,
             speed: 1500,
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             breakpoints: {
                 768: {
-                    slidesPerView: 4,
+                    slidesPerView: 1,
                     spaceBetween: 24,
                 }
             }
