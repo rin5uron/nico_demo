@@ -84,14 +84,14 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             breakpoints: {
                 768: {
-                    slidesPerView: 1,
+                    slidesPerView: 4,
                     spaceBetween: 24,
                 }
             }
         });
     });
 
-    // --- Product Swiper（1枚ずつ表示・矢印は画像に被らない）--- //
+    // --- Product Swiper（スマホ1枚・PCは4枚・矢印は画像に被らない）--- //
     const productSwiperEls = document.querySelectorAll('.product-swiper');
     productSwiperEls.forEach((productSwiperEl) => {
         new Swiper(productSwiperEl, {
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             breakpoints: {
                 768: {
-                    slidesPerView: 1,
+                    slidesPerView: 4,
                     spaceBetween: 24,
                 }
             }
