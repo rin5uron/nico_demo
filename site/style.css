@@ -1224,6 +1224,32 @@ footer .legal-notice {
     background-color: var(--brand-main);
 }
 
+/* おすすめ商品のページネーションをイベントと同じデザインに統一 */
+.product-slider-section .swiper-pagination-bullet,
+.event-info .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: var(--border);
+    opacity: 1;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.product-slider-section .swiper-pagination-bullet:hover,
+.event-info .swiper-pagination-bullet:hover {
+    background-color: var(--brand-accent);
+}
+.product-slider-section .swiper-pagination-bullet-active,
+.event-info .swiper-pagination-bullet-active {
+    background-color: var(--brand-main);
+    transform: scale(1.2);
+}
+.product-slider-section .swiper .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next,
+.product-slider-section .swiper .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev,
+.event-info .swiper .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next,
+.event-info .swiper .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
+    opacity: 0.5 !important;
+    filter: blur(1px);
+}
+
 /* --- Tea Tag --- */
 .tea-tag {
     display: inline-block;
