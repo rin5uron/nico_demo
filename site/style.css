@@ -1372,6 +1372,20 @@ body.simple-page {
     gap: 1.5rem;
 }
 
+/* 各ページのアイコン（toppage の JPG） */
+.page-icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+.page-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
 .home-link {
     font-family: var(--font-sans);
     font-size: 0.85rem;
