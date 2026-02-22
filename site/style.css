@@ -1027,8 +1027,8 @@ footer .legal-notice {
         grid-template-columns: repeat(2, 1fr);
     }
     .tea-gallery-grid {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 1.5rem; /* PCと同じ */
+        grid-template-columns: repeat(2, 1fr); /* スマホは2列で縦に並ぶ */
+        gap: 1rem;
     }
 }
 
@@ -1525,10 +1525,10 @@ body.simple-page {
         width: 20px;
     }
 
-    /* Tea gallery - スマホでもPCと同じ5列・同じgap */
+    /* Tea gallery - スマホは2列で縦並び（横一列にならないように） */
     .tea-gallery-grid {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 }
 
