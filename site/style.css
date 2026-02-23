@@ -1229,6 +1229,9 @@ footer .legal-notice {
 .event-info .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
+    min-width: 8px;
+    min-height: 8px;
+    flex-shrink: 0;
     background-color: var(--border);
     opacity: 1;
     transition: transform 0.2s ease, background-color 0.2s ease;
@@ -1258,6 +1261,19 @@ footer .legal-notice {
     margin: 0 2px;
 }
 
+/* おすすめ商品：分数表示（1 / 24）のスタイル */
+.product-slider-section .swiper-pagination-fraction {
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 500;
+}
+.product-slider-section .swiper-pagination-fraction .swiper-pagination-current {
+    color: var(--brand-main);
+}
+.product-slider-section .swiper-pagination-fraction .swiper-pagination-total {
+    opacity: 0.8;
+}
+
 /* --- Tea Tag --- */
 .tea-tag {
     display: inline-block;
@@ -1269,6 +1285,20 @@ footer .legal-notice {
     font-family: var(--font-sans);
     margin-left: 0.5rem;
     vertical-align: middle;
+}
+
+/* 季節のおすすめ：節気タグ */
+.season-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background-color: transparent;
+    color: var(--brand-main);
+    border: 1px solid var(--brand-main);
+    font-family: var(--font-sans);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
 }
 
 /* --- Swiper --- */
