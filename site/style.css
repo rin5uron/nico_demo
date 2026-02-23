@@ -1202,7 +1202,7 @@ footer .legal-notice {
 }
 
 /* --- ギャラリー共通：ページネーション（中央寄せ・約4つ・最後ぼかし）--- */
-/* Swiperデフォルトを上書きして確実に中央寄せ */
+/* Swiperデフォルトを上書きして確実に中央寄せ・おすすめもイベントと同じデザイン */
 .product-slider-section .swiper-pagination,
 .event-info .swiper-pagination,
 .product-slider-section .swiper .swiper-pagination,
@@ -1248,6 +1248,14 @@ footer .legal-notice {
 .event-info .swiper .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
     opacity: 0.5 !important;
     filter: blur(1px);
+}
+
+/* おすすめ商品：ページネーションをイベントと同じく中央寄せ（左寄せにならないように） */
+.product-slider-section .swiper .swiper-pagination {
+    text-align: center;
+}
+.product-slider-section .swiper .swiper-pagination .swiper-pagination-bullet {
+    margin: 0 2px;
 }
 
 /* --- Tea Tag --- */
