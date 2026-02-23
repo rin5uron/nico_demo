@@ -1287,7 +1287,8 @@ footer .legal-notice {
     vertical-align: middle;
 }
 
-/* 季節のおすすめ：節気タグ */
+/* 季節のおすすめ：節気タグ（大寒・立春・雨水 など）
+   使うときは store.html の season-tag コメントアウトも外す
 .season-tag {
     display: inline-block;
     font-size: 0.7rem;
@@ -1300,6 +1301,7 @@ footer .legal-notice {
     letter-spacing: 0.05em;
     margin-bottom: 0.4rem;
 }
+*/
 
 /* --- Swiper --- */
 .swiper {
